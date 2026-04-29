@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F2F1EC;
+  --background: #f2f1ec;
   --main: #536056;
-  --sec: #DADCD9;
+  --sec: #dadcd9;
 }
 
 @theme inline {
@@ -12,4 +12,15 @@
   --color-sec: var(--sec);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--background);
+}
+
+.boldtext {
+  font-weight: bold;
 }
