@@ -1,9 +1,11 @@
+import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 
 
 export default function Home() {
   return (
-    <main>
-      <p>Site web!</p>
+    <main className={'relative min-h-screen bg-bg'}>
+      <Navbar/>
+        <MobileNavbar/>
     </main>
   );
 }
