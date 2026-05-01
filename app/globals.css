@@ -24,3 +24,19 @@ body {
 .boldtext {
   font-weight: bold;
 }
+
+.shadowthing {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.bigtitle {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--main);
+  font-weight: bold;
+}
+.smalltitle {
+  text-align: left;
+  font-size: 1.5rem;
+  color: var(--main);
+  font-weight: bold;
+}

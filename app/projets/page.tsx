@@ -3,6 +3,7 @@ import Footer from "@/app/components/Footer";
 import ProjectCard, {MembersCard} from "@/app/components/projet";
 import MembresList from "@/app/data/membres";
 import Link from "next/link";
+import Script from "next/script";
 
 const projects = [
     {
@@ -70,6 +71,10 @@ export default function Projects() {
             <Footer/>
 
             <MobileNavbar/>
+            <Script
+                src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+                strategy="afterInteractive"
+            />
         </div>
 
     )

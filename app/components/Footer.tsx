@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
+import TrustpilotWidget from "@/app/components/TrustPilotWidget";
 
 
 export default function Footer() {
@@ -15,7 +17,12 @@ export default function Footer() {
                 <p>Statuts disponibles sur demande. </p>
             </div>
 
-            <Link href={"/"}> <Image src={"/epi-logo-tete.png"} alt={"buste epi"} width={110} height={110}/></Link>
+            <div className={"flex flex-col items-center gap-6"}>
+                <Link href={"/"}> <Image src={"/epi-logo-tete.png"} alt={"buste epi"} width={110} height={110}/></Link>
+
+                <TrustpilotWidget/>
+            </div>
+
 
             <div className={"flex flex-col items-center text-center pt-3"}>
                 <h1 className={"text-3xl text-main font-semibold"}>Recrutements</h1>
@@ -26,6 +33,7 @@ export default function Footer() {
                 <Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50}/>
                 <Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50}/>
             </div>
+
         </section>
     )
 }

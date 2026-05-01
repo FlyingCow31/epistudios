@@ -64,6 +64,18 @@ const MembresList = [
         name: "Mr_qsdf",
         title: "Développeur, Modélisateur 3d et Sound Designer",
         description: "Essaye de comprendre comment casser le monde avec du code / Java"
+    },
+    {
+        src: "/members/maxime.jpeg",
+        name: "Maxime",
+        title: "Réalisateur 3D & monteur",
+        description: "Passionné de montage vidéo, j’ai appris en autodidacte à animer et monter sur After Effect."
+    },
+    {
+        src: "/members/loan.png",
+        name: "Loan",
+        title: "Graphiste",
+        description: "Graphiste et dessinatrice, armée de ses études de com pour aller un peu plus loin :)"
     }
 ];
 
