@@ -12,6 +12,7 @@ export default function Navbar() {
                 <Link href={"/projets"}><p className={"text-3xl text-main"}>Projets</p></Link>
                 <Image src={"/feuille-icone.png"} alt={"feuille navbar"} width={40} height={40} className={"-scale-x-100 origin-center"}/>
 
+            {/*TODO: rajouter les liens, pareil pour le footer (pour le mobile vu que il n'y a pas ces icones dans la nav mobile)*/}
             <Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50} className={"absolute left-10"}/>
             <Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50} className={"absolute left-25"}/>
         </div>
@@ -24,7 +25,7 @@ export function MobileNavbar() {
 
                 <Link href={"/services"}><Glasses color="#DADCD9" width={40} height={40} /></Link>
             <Link href={"/"}> <Image src={"/epi-logo-tete.png"} alt={"buste epi"} width={40} height={40}/></Link>
-                <Link href={"/projects"}><FolderGit2 color="#DADCD9" width={40} height={40} /></Link>
+                <Link href={"/projets"}><FolderGit2 color="#DADCD9" width={40} height={40} /></Link>
 
         </div>
     )

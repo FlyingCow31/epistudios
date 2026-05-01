@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <section className={" py-3 bg-[url('/fond-feuilles-gris.jpg')] bg-cover bg-center flex flex-col items-center "}>
+        <section className={" py-3 bg-[url('/fond-feuilles-gris.jpg')] bg-cover bg-center flex flex-col items-center pb-30"}>
             <div className="flex flex-col items-center pb-3">
                 <h1 className={"text-3xl text-main font-semibold"}>Informations</h1>
                 <p>Association Loi 1901 créée le 24/08/2025.</p>
@@ -23,6 +23,8 @@ export default function Footer() {
                 <p>Nous recherchons des graphistes, des développeurs et des CM!</p>
                 <p>Pour plus d&#39;informations concernant les recrutements,</p>
                 <Link href={"/recrutements"}><p>Rendez-vous sur cette page!</p> </Link>
+                <Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50}/>
+                <Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50}/>
             </div>
         </section>
     )

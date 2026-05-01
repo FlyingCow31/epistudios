@@ -60,6 +60,8 @@ export default function Home() {
                 </div>
             </section>
 
+            {/*TODO: ajouter le partenariat avec Hyperion*/}
+
             <Footer/>
         </div>
 
