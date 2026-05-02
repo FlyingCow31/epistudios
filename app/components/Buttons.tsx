@@ -1,10 +1,14 @@
 import Link from "next/link";
 
+interface ButtonProps {
+    classname?: string,
+    name?: string
+}
 
-export function OrderButton() {
+export function OrderButton({classname, name} : ButtonProps) {
     return (
         <Link href={"/contact"}>
-            <button className={'bg-main py-2 px-5 w-[100%] text-white font-semibold rounded-lg shadowthing'}>En parler →</button>
+            <button className={`${classname || "w-[100%]"} bg-main py-2 px-5 text-white font-semibold rounded-lg shadowthing`}>{name || "En parler →"}</button>
         </Link>
     )
 }

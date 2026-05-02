@@ -70,7 +70,7 @@ export default function page() {
                         <p>🤖 Configuration des bots inclus </p>
                         <p>Serveurs communautaires, spécialisés, de travail ou juste entre amis! </p>
                         <p> </p>
-                        <OrderButton/>
+                        <OrderButton name={"Recevoir votre serveur →"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3'}>
                         <h1 className={'smalltitle'}>Bot Discord personnalisé</h1>
@@ -94,7 +94,7 @@ export default function page() {
                         <p>🛡️ Anti-Cheat </p>
                         <p>👥 Ranks personnalisés </p>
                         <p>🔗 Intégration Discord </p>
-                        <OrderButton/>
+                        <OrderButton name={"Nous contacter →"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3'}>
                         <p className={'text-justify text-main'}>
@@ -109,7 +109,7 @@ export default function page() {
                         <p>📜 Documentation incluse </p>
                         <p>🤝 Assistance 6 mois </p>
                         <p>🗃️ Fichier de configuration </p>
-                        <OrderButton/>
+                        <OrderButton name={"Discuter de votre projet →"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3'}>
                         <p className={'text-justify text-main'}>
@@ -126,7 +126,7 @@ export default function page() {
                 <h1 className={"bigtitle text-center mt-10"}>Et bien plus...</h1>
                 <p className={"opacity-50 text-center mb-10"}>Projets sur-mesures</p>
                 <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
-                <OrderButton/>
+                <OrderButton classname={"w-[80%] block mx-auto"} name={"Détailler votre projet →"}/>
 
                 <h1 className={"bigtitle text-center mt-10"}>F.A.Q</h1>
 

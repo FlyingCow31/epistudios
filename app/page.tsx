@@ -55,7 +55,7 @@ export default function Home() {
                     hors de l&#39;espace de travail stressant.<span className={"text-2xl font-extrabold"}>&#34;</span> </p>
 
                 <div className={"flex gap-2 items-center text-center justify-center w-full my-6"}>
-                    <Image src={"/moi.jpeg"} alt={"Gaël Président"} height={100} width={100} className={"flex-1 ml-10 rounded-2xl"}/>
+                    <Image src={"/members/moi.jpeg"} alt={"Gaël Président"} height={100} width={100} className={"flex-1 ml-10 rounded-2xl"}/>
                     <p>Gaël, fondateur de l&#39;association et développeur web</p>
                 </div>
             </section>

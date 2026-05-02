@@ -4,10 +4,12 @@
   --background: #f2f1ec;
   --main: #536056;
   --sec: #dadcd9;
+  --secdark: #bdbaba;
 }
 
 @theme inline {
   --bg-bg: var(--background);
+  --color-secdark: var(--secdark);
   --color-main: var(--main);
   --color-sec: var(--sec);
   --font-sans: var(--font-geist-sans);
