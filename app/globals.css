@@ -12,6 +12,7 @@
   --color-secdark: var(--secdark);
   --color-main: var(--main);
   --color-sec: var(--sec);
+  --color-seclight: #f5f6f8;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -39,6 +40,13 @@ body {
 .smalltitle {
   text-align: left;
   font-size: 1.5rem;
+  color: var(--main);
+  font-weight: bold;
+}
+
+.titleform {
+  text-align: center;
+  font-size: 1.2rem;
   color: var(--main);
   font-weight: bold;
 }
