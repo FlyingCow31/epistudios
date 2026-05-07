@@ -1,7 +1,8 @@
 "use client"
 import {FaqRecrutements} from "@/app/components/faq";
-import {useState} from "react";
+import React, {useState} from "react";
 import Image from "next/image";
+import {recrutementlogic} from "@/app/actions/recrutements";
 
 
 const questionsCommunes = [
@@ -101,7 +102,7 @@ const questionsGfx = [
     {
         label: "Décrivez un projet sur lequel vous avez joué un rôle majeur.",
         type:"text",
-        name: "role",
+        name: "majeur",
         placeholder: "J'ai été lead d'une équipe de designers..."
     },
     {
@@ -189,22 +190,28 @@ interface FormValue {
     choix: "developpeur" | "graphiste" | "CM"
 }
 
-// {
-//     label: "Présentation Générale (min. 50 mots)",
-//         type: "text",
-//     name: "presentation",
-//     placeholder: "Je suis passionné de... , j'ai déja fait..."
-// },
-// {
-//     label: "Présentation de votre parcours d'études",
-//         type: "text",
-//     name: "studies",
-//     placeholder: "J'ai un bac +3 en ... , j'étudie le..."
-// }
 export default function FormGeneral() {
     const [openForm, setOpenForm] = useState< string | null>(null);
     const [formVisibility, setFormVisibility] = useState(false);
     const [fileUpload, setFileUpload] = useState(false);
+
+
+    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [success, setSuccess] = useState(false);
+
+    const handleSubmit = async (e: React.BaseSyntheticEvent) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const result = await recrutementlogic(formData);
+
+        if (result.success) {
+            setSuccess(true);
+            setErrors({});
+        } else {
+            setErrors(result.errors ?? {FrontEnd: "mauvaise communication."});
+            console.log(errors);
+        }
+    }
 
 
     const classRadio = "appearance-none p-2 checked:bg-main outline-sec outline outline-offset-3 rounded-sm";
@@ -212,14 +219,17 @@ export default function FormGeneral() {
     return (
 
             <section className={'mt-10'}>
-                <form>
-                <div className={`${classDiv}`}>
+                <form onSubmit={handleSubmit}>
+
+
+                    <div className={`${classDiv}`}>
                     <p className={'titleform'}>Quelle est votre spécialité?</p>
                     <label className={'flex items-center gap-3'}>
                         <input type={"radio"} name={"role"} value={"developpeur"}
                                className={`${classRadio}`}
                                onChange={((e) => setOpenForm(e.target.value))}/>
                         Développeur
+
                     </label>
                     <label className={'flex items-center gap-3'}>
                         <input type={"radio"} name={"role"} value={"graphiste"}
@@ -233,6 +243,7 @@ export default function FormGeneral() {
                                onChange={((e) => setOpenForm(e.target.value))}/>
                         Community Manager (CM)
                     </label>
+                        {errors.role && <p className="text-red-500">{errors.role}</p>}
                 </div>
 
 
@@ -255,7 +266,10 @@ export default function FormGeneral() {
                         
                         {questionsCommunes.map((quest) => {
                             return (
-                                <FormInputText key={quest.name} {...quest}/>
+                                <React.Fragment key={quest.name}>
+                                    <FormInputText  {...quest}/>
+                                    {errors[quest.name] && <p className="text-red-500">{errors[quest.name]}</p>}
+                                </React.Fragment>
                             )
                         })}
 
@@ -281,6 +295,7 @@ export default function FormGeneral() {
                         </label>
                     </div>
 
+
                     {openForm && (
                     <div className={`${classDiv}`}>
                         {openForm == "developpeur" && <FormSpecialise choix={"developpeur"}/> }
@@ -290,15 +305,22 @@ export default function FormGeneral() {
 
                             <button
                               type="button"
-                              onClick={() => setFormVisibility(true)}
+                              onClick={() => {
+                                  setFormVisibility(true);
+                                  setTimeout(() => document.getElementById("endDiv")?.scrollIntoView({
+                                      behavior: "smooth",
+                                      block: "center",
+                                  }), 0);
+                              }}
                               className={"bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm"}
                             >
                               Suivant
                             </button>
                     </div>
                     )}
+
                     {formVisibility && (
-                    <div className={`${classDiv} items-center`}>
+                    <div className={`${classDiv} items-center`} id={"endDiv"}>
                         
                         <h1 className={'bigtitle'}>Merci pour votre candidature!</h1>
                         <p className={"text-justify"}>
@@ -307,14 +329,11 @@ export default function FormGeneral() {
                         </p>
                          <FormStar/>
 
-                        <button type={"button"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Validez votre candidature</button>
-                    {/*    TODO: handle submission*/}
+                        <button type={"submit"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Validez votre candidature</button>
+
                     </div>
                     )}
                 </form>
-
-
-
             </section>
     )
 }
@@ -357,7 +376,6 @@ export function FormStar() {
             <input type="hidden" name="rating" value={rating} />
 
             <FormInputText type={"text"} name={"questionfin"} label={"Des questions/remarques?"}/>
-            <button></button>
         </>
     );
 }
