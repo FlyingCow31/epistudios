@@ -110,6 +110,13 @@ export async function recrutementlogic(formData: FormData) {
             from: process.env["SMTP_USER"],
             to: "contact@epistudios.fr",
             subject: `Nouvelle candidature - ${role}`,
+            attachments: [
+                {
+                    filename: cv.name,
+                    content: Buffer.from(await cv.arrayBuffer()),
+                    contentType: "application/pdf"
+                }
+            ],
             text:`
             Nouvelle candidature pour le rôle ${role}:
             

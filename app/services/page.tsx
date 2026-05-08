@@ -5,6 +5,8 @@ import Link from "next/link";
 import TrustpilotWidget from "@/app/components/TrustPilotWidget";
 import {OrderButton} from "@/app/components/Buttons";
 import {FaqServices} from "@/app/components/faq";
+import React from "react";
+
 
 
 export default function page() {
@@ -15,7 +17,7 @@ export default function page() {
             <MobileNavbar/>
 
             <main>
-                <h1 className={'bigtitle w-full text-center'}>Nos Services</h1>
+                <h1 className={'bigtitle w-full text-center mt-6'}>Nos Services</h1>
                 <p className={'text-justify w-80 mx-auto text-main'}>
                     Profitez de tarifs associatifs sur nos gammes de services pour concrétiser vos projets de A à Z!
                     Nos compétences s&#39;étendent de la conception de sites web, à la gestion de serveurs de jeu personnalisés, en passant par le graphisme. 
