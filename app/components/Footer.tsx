@@ -6,8 +6,10 @@ import TrustpilotWidget from "@/app/components/TrustPilotWidget";
 
 export default function Footer() {
     return (
-        <section className={" py-3 bg-[url('/fond-feuilles-gris.jpg')] bg-cover bg-center flex flex-col items-center pb-30"}>
-            <div className="flex flex-col items-center pb-3">
+
+        <section className={" py-3 bg-[url('/fond-feuilles-gris.jpg')] bg-cover bg-center flex flex-col items-center pb-30 lg:flex-row lg:justify-center lg:py-3"}>
+
+            <div className="flex flex-col items-center pb-3 lg:flex-1">
                 <h1 className={"text-3xl text-main font-semibold"}>Informations</h1>
                 <p>Association Loi 1901 créée le 24/08/2025.</p>
                 <Link href={"/mentions"}><p>Mentions Légales</p></Link>
@@ -17,21 +19,26 @@ export default function Footer() {
                 <p>Statuts disponibles sur demande. </p>
             </div>
 
-            <div className={"flex flex-col items-center gap-6"}>
+            <div className={"flex flex-col items-center gap-6 lg:flex-1"}>
                 <Link href={"/"}> <Image src={"/epi-logo-tete.png"} alt={"buste epi"} width={110} height={110}/></Link>
 
                 <TrustpilotWidget/>
             </div>
 
 
-            <div className={"flex flex-col items-center text-center pt-3"}>
+            <div className={"flex flex-col items-center text-center pt-3 lg:flex-1"}>
+
                 <h1 className={"text-3xl text-main font-semibold"}>Recrutements</h1>
                 <p>Vous souhaitez nous rejoindre pour faire partie de l&#39;aventure ?</p>
                 <p>Nous recherchons des graphistes, des développeurs et des CM!</p>
                 <p>Pour plus d&#39;informations concernant les recrutements,</p>
                 <Link href={"/recrutements"}><p>Rendez-vous sur cette page!</p> </Link>
-                <Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50}/>
-                <Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50}/>
+                <div className={'lg:flex flex-row gap-4'}>
+                    <Link href={"https://discord.gg/PvKeHzTwdU"}><Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50} /></Link>
+                    <Link href={"https://github.com/EPI-Studios"}><Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50} /></Link>
+                </div>
+
+
             </div>
 
         </section>

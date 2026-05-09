@@ -13,8 +13,8 @@ export default function Navbar() {
                 <Image src={"/feuille-icone.png"} alt={"feuille navbar"} width={40} height={40} className={"-scale-x-100 origin-center"}/>
 
             {/*TODO: rajouter les liens, pareil pour le footer (pour le mobile vu que il n'y a pas ces icones dans la nav mobile)*/}
-            <Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50} className={"absolute left-10"}/>
-            <Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50} className={"absolute left-25"}/>
+            <Link href={"https://discord.gg/PvKeHzTwdU"} className={"absolute left-10"}><Image src={"/discordicon.png"} alt={"Icone Discord"} height={50} width={50} /></Link>
+            <Link href={"https://github.com/EPI-Studios"} className={"absolute left-25"}><Image src={"/githubicon.png"} alt={"Icone Discord"} height={50} width={50} /></Link>
         </div>
     )
 }
