@@ -203,16 +203,18 @@ export default function FormGeneral() {
     const [formEnd, setFormEnd] = useState(false);
 
 
-
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [success, setSuccess] = useState(false);
 
     const handleSubmit = async (e: React.BaseSyntheticEvent) => {
+        setLoading(true)
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const result = await recrutementlogic(formData);
 
         if (result.success) {
+            setLoading(false);
             setFormEnd(true);
             setSuccess(true);
             setErrors({});
@@ -224,7 +226,7 @@ export default function FormGeneral() {
 
 
     const classRadio = "appearance-none p-2 checked:bg-main outline-sec outline outline-offset-3 rounded-sm";
-    const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6"
+    const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6 lg:w-[60%] lg:items-center"
     return (
         <>
         {!formEnd && (
@@ -257,7 +259,7 @@ export default function FormGeneral() {
                 </div>
 
 
-                <div className={'my-6 w-80 mx-auto flex flex-col gap-3'}>
+                <div className={'my-6 w-80 mx-auto flex flex-col gap-3 w-[100%]'}>
                     <h1 className={'titleform'}>F.A.Q - Avant de commencer la candidature</h1>
                     <FaqRecrutements/>
                     <p className={"text-center font-xl text-main"}>
@@ -283,16 +285,16 @@ export default function FormGeneral() {
                             )
                         })}
 
-                        <label className={'flex flex-col items-center gap-1'}>
+                        <label className={'flex flex-col items-center gap-1 lg:w-[90%]'}>
                             <span className={'titleform'}>Présentation Générale (min. 50 mots)</span>
-                            <textarea name={"presentation"} placeholder={"Je suis passionné de... , j'ai déja fait..."} rows={5} className={"mx-auto w-70 bg-seclight border-sec border rounded-sm p-2 outline-none"}
+                            <textarea name={"presentation"} placeholder={"Je suis passionné de... , j'ai déja fait..."} rows={5} className={"mx-auto w-70 bg-seclight border-sec border rounded-sm p-2 outline-none lg:w-[100%]"}
                             minLength={50} required={true}/>
                         </label>
-                        <label className={'flex flex-col items-center gap-1'}>
+                        <label className={'flex flex-col items-center gap-1 lg:w-[90%]'}>
                             <span className={'titleform'}>Présentation de votre parcours d&#39;études</span>
                             <textarea name={"parcours"} placeholder={"J'ai un bac +3 en ... , j'étudie le..."}
-                                      minLength={50} required={true}
-                                      rows={5} className={"mx-auto w-70 bg-seclight border-sec border rounded-sm p-2 outline-none"}/>
+                                      required={true}
+                                      rows={5} className={"mx-auto w-70 bg-seclight border-sec border rounded-sm p-2 outline-none lg:w-[100%]"}/>
                         </label>
 
                         <label className={'flex flex-col items-center'}>
@@ -344,7 +346,7 @@ export default function FormGeneral() {
                          <FormStar/>
 
                         <button type={"submit"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Validez votre candidature</button>
-
+                        {loading && (<p>Envoi...</p>)}
                     </div>
                     )}
                 </form>
@@ -376,6 +378,7 @@ export default function FormGeneral() {
                     )}
                 </>
             )}
+
         </>
     )
 }
@@ -422,9 +425,9 @@ export function FormStar() {
     );
 }
 export function FormInputText({label, type, name, placeholder, required}: FormProps) {
-    const classInput = "bg-seclight border-sec border rounded-sm p-1 outline-none";
+    const classInput = "bg-seclight border-sec border rounded-sm p-1 outline-none lg:w-[100%]";
     return (
-        <label className={"flex flex-col items-center "}>
+        <label className={"flex flex-col items-center lg:w-[90%]"}>
             <span className={"titleform"}>{label}</span>
             <input
                 type={`${type}`}
@@ -440,7 +443,7 @@ export function FormInputText({label, type, name, placeholder, required}: FormPr
 
 
 export function FormContact() {
-    const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6"
+    const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6 lg:w-[60%]"
     const [fileUpload, setFileUpload] = useState(false);
     const [formEnd, setFormEnd] = useState(false);
 
@@ -456,14 +459,13 @@ export function FormContact() {
             setSuccess(true);
 
         } else {
-
             console.log("Erreur dans la communication");
         }
     }
     return (
         <>
         { !formEnd && (
-            <section className={'bg-white w-80 mx-auto my-6 p-6 rounded-xl shadow'}>
+            <section className={'bg-white w-80 mx-auto my-6 p-6 rounded-xl shadow lg:w-[60%]'}>
                 <h1 className={'bigtitle mt-6'}>Contact</h1>
                 <p className={"text-center mb-3"}>
                     Vous souhaitez commander, nous poser des questions ou simplement discuter ?<br/>
@@ -481,16 +483,16 @@ export function FormContact() {
                 <textarea
                     name={"details"}
                     placeholder={"Détaillez un maximum votre demande"}
-                    className={"bg-seclight border-sec border rounded-sm p-1 outline-none"}
+                    className={"bg-seclight border-sec border rounded-sm p-1 outline-none lg:w-[90%]"}
                     rows={5}
                 />
 
-                <label className={'flex flex-col items-center'}>
+                <label className={'flex flex-col items-center '}>
                     <span className={'titleform'}>... Ou téléchargez votre cahier des charges (PDF uniquements.)</span>
                     <input
                         type={"file"}
                         name={"cdc"}
-                        className={"hidden mt-3"}
+                        className={"hidden mt-3 "}
                         onChange={() => {setFileUpload(true)}}
                         accept={"application/pdf"}
                     />
@@ -506,7 +508,7 @@ export function FormContact() {
                 <>
                     {success && (
                         <div className={`${classDiv} items-center`}>
-                            <h1 className={'bigtitle'}>Merci de votre candidature!</h1>
+                            <h1 className={'bigtitle'}>Merci pour votre message!</h1>
                             <p className={'text-center boldtext'}>Vous avez reçu un mail de confirmation.</p>
                             <Link href={"/"}>
                                 <button className={'bg-main text-white p-4 rounded-xl'}>

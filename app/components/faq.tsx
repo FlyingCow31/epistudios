@@ -68,7 +68,7 @@ export function FaqServices() {
 
 
     return (
-        <div className={'flex flex-col gap-6 w-80 mx-auto mb-10'}>
+        <div className={'flex flex-col gap-6 w-80 mx-auto mb-10 lg:w-[60%]'}>
             {services.map((quest, index) => {
                 return(
                     <div key={index} className={`rounded-xl p-4 ${openIndex == index ? "bg-secdark" : "bg-sec" }`}>
@@ -97,7 +97,7 @@ export function FaqRecrutements() {
     }
 
     return (
-        <div className={'flex flex-col gap-6 w-80 mx-auto mb-10'}>
+        <div className={'flex flex-col gap-6 w-80 mx-auto mb-10 lg:w-[60%]'}>
             {recrutements.map((quest, index) => {
                 return(
                     <div key={index} className={`rounded-xl p-4 ${openIndex == index ? "bg-secdark" : "bg-sec" }`}>

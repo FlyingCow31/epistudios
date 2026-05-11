@@ -36,13 +36,14 @@ export default function Projects() {
             <Navbar/>
             <main className={"min-h-screen"}>
                 <section>
-                    <h1 className={'text-center text-5xl text-main font-bold mt-10'}>Nos Projets</h1>
-                    <p className={'text-center text-xl text-main mt-3 w-85 mx-auto'}>
+                    <h1 className={'text-center text-5xl text-main font-bold mt-10 lg:text-7xl'}>Nos Projets</h1>
+                    <p className={'text-center text-xl text-main mt-3 w-85 mx-auto lg:w-[70%]'}>
                         Depuis le lancement d&#39;EPI Studio, nous avons travaillé sur des projets Minecraft,
                         des applications PC/Mobile ainsi que des jeux-vidéos. Vous pouvez les télécharger
                         directement sur Github, ils sont gratuits!
                     </p>
                 </section>
+
                 <section className={"flex flex-col gap-10 my-6"}>
                     {projects.map((project, index) => {
                         return (
@@ -51,7 +52,8 @@ export default function Projects() {
                     })}
                 </section>
                 <h1 className={"text-4xl text-main font-bold text-center my-10"}>Meet the Team !</h1>
-                <section className={"flex flex-col gap-10 my-6"}>
+
+                <section className={"flex flex-col gap-10 my-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[70%] lg:mx-auto"}>
                     {MembresList.map((members, index) => {
                         return(
                             <MembersCard key={index} {...members}/>
@@ -59,10 +61,10 @@ export default function Projects() {
                     })}
                 </section>
 
-                <div className={'bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6'}>
+                <div className={'bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[70%] lg:py-12'}>
                     <h1 className={'text-center font-bold text-white text-5xl'}>Tu souhaites faire partie du studio ?</h1>
                     <Link href={"/recrutements"}>
-                        <button className={'mt-6 bg-sec p-2 rounded-xl font-semibold'}>
+                        <button className={'mt-6 bg-sec p-2 rounded-xl font-semibold lg:text-3xl'}>
                            Nous rejoindre
                         </button>
                     </Link>
@@ -71,10 +73,7 @@ export default function Projects() {
             <Footer/>
 
             <MobileNavbar/>
-            <Script
-                src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-                strategy="afterInteractive"
-            />
+
         </div>
 
     )

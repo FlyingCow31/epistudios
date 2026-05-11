@@ -23,6 +23,7 @@ export default function TrustpilotWidget() {
             data-style-height="52px"
             data-style-width="100%"
             data-token="1818af44-b707-4f9d-911d-1ffb8e57e657"
+
         >
             <Script
                 src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"

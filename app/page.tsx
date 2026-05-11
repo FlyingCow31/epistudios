@@ -74,7 +74,7 @@ export default function Home() {
             </section>
 
 
-            <section className={"lg:flex-row lg:flex lg:items-center lg:justify-center "}>
+            <section className={"lg:flex-row lg:flex lg:items-center lg:justify-center lg:gap-10"}>
                 <div className={"lg:flex lg:flex-col lg:items-center"}>
 
                     <h1 className={"text-main text-center text-3xl mt-10"}>Un message du Président</h1>
@@ -94,7 +94,14 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*TODO: ajouter le partenariat avec Hyperion*/}
+            <section>
+                <h1 className={"text-main text-center text-3xl"}>Nos Partenaires</h1>
+                <p className={'text-center text-xl'}>Merci à nos partenaires de faire fonctionner notre association!</p>
+
+                <Link href={"https://hyperion.cloud/"} className={'block w-fit mx-auto'}><Image src={"hyperion-logo.svg"} alt={"Hyperion Logo"} height={400} width={400} className={'invert-100 my-6'}/></Link>
+
+            </section>
+
 
             <Footer/>
         </div>

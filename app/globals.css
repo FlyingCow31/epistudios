@@ -38,6 +38,11 @@ body {
   color: var(--main);
   font-weight: bold;
 }
+@media (min-width: 1024px) {
+  .bigtitle {
+    font-size: 5rem;
+  }
+}
 .smalltitle {
   text-align: left;
   font-size: 1.5rem;
