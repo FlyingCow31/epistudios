@@ -94,7 +94,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section>
+            <section className={'mt-10'}>
                 <h1 className={"text-main text-center text-3xl"}>Nos Partenaires</h1>
                 <p className={'text-center text-xl'}>Merci à nos partenaires de faire fonctionner notre association!</p>
 
