@@ -127,7 +127,7 @@ export default function page() {
                 <h1 className={"bigtitle text-center mt-10"}>Et bien plus...</h1>
                 <p className={"opacity-50 text-center mb-10 lg:mb-0"}>Projets sur-mesures</p>
                 <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
-                <Link href={"/contact"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg">
+                <Link href={"/portfolio"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg">
                     <div className={'flex items-center gap-2'}>
                         <p>Accèdez à notre portfolio</p>
                         <ArrowRightIcon/>

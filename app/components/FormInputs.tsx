@@ -5,6 +5,7 @@ import Image from "next/image";
 import {recrutementlogic} from "@/app/actions/recrutements";
 import Link from "next/link";
 import ContactBehaviour from "@/app/actions/contact";
+import {FaCheck, FaUpload} from "react-icons/fa";
 
 
 const questionsCommunes = [
@@ -496,11 +497,11 @@ export function FormContact() {
                         onChange={() => {setFileUpload(true)}}
                         accept={"application/pdf"}
                     />
-                    { fileUpload ? <p className={"text-6xl mt-3"}>✅</p> : <Image src={"/upload-icone.png"} alt={"Upload"} width={60} height={60} className={"mt-3"}/>}
+                    { fileUpload ? <FaCheck size={50} className={"text-main"}/> : <FaUpload size={50} className={"text-main"}/>}
                 </label>
 
                 <FormInputText type={"text"} name={"budget"} placeholder={"Indiquez un budget"} required={true}/>
-                <button type={"submit"} className={'bg-main w-full block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Envoyer</button>
+                <button type={"submit"} className={'cursor-pointer bg-main w-full block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Envoyer</button>
             </form>
             </section>
         )}
@@ -510,10 +511,8 @@ export function FormContact() {
                         <div className={`${classDiv} items-center`}>
                             <h1 className={'bigtitle'}>Merci pour votre message!</h1>
                             <p className={'text-center boldtext'}>Vous avez reçu un mail de confirmation.</p>
-                            <Link href={"/"}>
-                                <button className={'bg-main text-white p-4 rounded-xl'}>
-                                    Retour à l&#39;accueil
-                                </button>
+                            <Link href={"/"} className={"cursor-pointer bg-main text-white p-4 rounded-xl"}>
+                                Retour à l&#39;accueil
                             </Link>
                         </div>
                     )}
@@ -521,10 +520,8 @@ export function FormContact() {
                         <div className={`${classDiv} items-center`}>
                             <h1 className={'bigtitle'}>Erreur :(</h1>
                             <p className={'text-center boldtext'}>Veuillez recommencer ou contacter EPI STUDIO.</p>
-                            <Link href={"/"}>
-                                <button className={'bg-main text-white p-4 rounded-xl'}>
-                                    Retour à l&#39;accueil
-                                </button>
+                            <Link href={"/"} className={"cursor-pointer bg-main text-white p-4 rounded-xl"}>
+                                Retour à l&#39;accueil
                             </Link>
                         </div>
                     )}

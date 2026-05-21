@@ -2,6 +2,8 @@ import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
 import Image from "next/image";
+import {ArrowRightIcon} from "lucide-react";
+import React from "react";
 
 export function StatueMain() {
     return(
@@ -38,8 +40,13 @@ export default function Home() {
                         ou graphique. Composée d&#39;une équipe de <span className={"boldtext"}>bénévole</span>, EPI Studio mets l&#39;accent sur <span className={"boldtext"}>la passion et
                     le plaisir à coder</span>.
                     </p>
-                    <Link href={"/projets"} className={"w-full cursor-pointer mt-3 text-right w-full text-main text-lg underline lg:text-2xl lg:pt-auto"}>
-                        Découvrir EPI Studio →
+                    <Link
+                        href={"/projets"}
+                        className="cursor-pointer mt-3 text-main text-lg underline lg:text-2xl w-full">
+                        <div className="flex items-center justify-end gap-2">
+                            <p>Découvrir Epi Studio</p>
+                            <ArrowRightIcon />
+                        </div>
                     </Link>
                 </div>
 
