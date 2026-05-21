@@ -1,9 +1,10 @@
 import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import ProjectCard, {MembersCard} from "@/app/components/projet";
 import MembresList from "@/app/data/services/membres";
 import ProjectsList from "@/app/data/services/projects";
 import Link from "next/link";
+import {MemberCard} from "@/app/components/cards/member/MemberCard";
+import {ProjectCard} from "@/app/components/cards/project/ProjectCard";
 
 export default function Projects() {
     return (
@@ -31,7 +32,7 @@ export default function Projects() {
                 <section className={"flex flex-col gap-10 my-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[70%] lg:mx-auto"}>
                     {MembresList.map((members, index) => {
                         return(
-                            <MembersCard key={index} {...members}/>
+                            <MemberCard key={index} {...members}/>
                         )
                     })}
                 </section>

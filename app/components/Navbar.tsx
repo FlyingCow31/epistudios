@@ -3,7 +3,6 @@ import Link from "next/link";
 import {FolderGit2, Glasses} from "lucide-react";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
-
 export default function Navbar() {
     return (
         <div className={"z-10 hidden md:relative md:w-full md:flex items-center justify-center pt-10 mb-10 gap-6"}>

@@ -2,7 +2,6 @@ import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import FormGeneral from "@/app/components/FormInputs";
 
-
 export default function Page() {
     return (
         <div>
