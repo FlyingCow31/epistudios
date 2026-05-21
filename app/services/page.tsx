@@ -2,11 +2,11 @@ import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 
-import {ServiceButton} from "@/app/components/Buttons";
 import {FaqServices} from "@/app/components/faq";
 import React from "react";
 
 import {ArrowRightIcon} from "lucide-react";
+import {ServiceButton} from "@/app/components/buttons/service/ServiceButton";
 
 
 export default function page() {
@@ -127,6 +127,7 @@ export default function page() {
                 <h1 className={"bigtitle text-center mt-10"}>Et bien plus...</h1>
                 <p className={"opacity-50 text-center mb-10 lg:mb-0"}>Projets sur-mesures</p>
                 <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
+
                 <Link href={"/portfolio"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg">
                     <div className={'flex items-center gap-2'}>
                         <p>Accèdez à notre portfolio</p>
