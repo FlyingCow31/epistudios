@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function StatueMain() {
     return(
-        <div className={" hidden lg:block relative "}>
+        <div className={"hidden lg:block relative"}>
             <Image
                 src={"/epi-logo-entier.png"}
                 alt={"Buste EPI Entier"}
@@ -21,6 +21,7 @@ export function StatueMain() {
         </div>
     )
 }
+
 export default function Home() {
   return (
     <main className={'relative min-h-screen '}>
@@ -37,8 +38,8 @@ export default function Home() {
                         ou graphique. Composée d&#39;une équipe de <span className={"boldtext"}>bénévole</span>, EPI Studio mets l&#39;accent sur <span className={"boldtext"}>la passion et
                     le plaisir à coder</span>.
                     </p>
-                    <Link href={"/projets"} className={"w-full"}>
-                        <button className={"mt-3 text-right w-full text-main text-lg underline lg:text-2xl lg:pt-auto"}>Découvrir EPI Studio →</button>
+                    <Link href={"/projets"} className={"w-full cursor-pointer mt-3 text-right w-full text-main text-lg underline lg:text-2xl lg:pt-auto"}>
+                        Découvrir EPI Studio →
                     </Link>
                 </div>
 
@@ -98,7 +99,9 @@ export default function Home() {
                 <h1 className={"text-main text-center text-3xl"}>Nos Partenaires</h1>
                 <p className={'text-center text-xl'}>Merci à nos partenaires de faire fonctionner notre association!</p>
 
-                <Link href={"https://hyperion.cloud/"} className={'block w-fit mx-auto'}><Image src={"hyperion-logo.svg"} alt={"Hyperion Logo"} height={400} width={400} className={'invert-100 my-6'}/></Link>
+                <Link href={"https://hyperion.cloud/"} className={'block w-fit mx-auto'}>
+                    <Image src={"hyperion-logo.svg"} alt={"Hyperion Logo"} height={400} width={400} className={'invert-100 my-6 hover:scale-105 transition-all duration-300'}/>
+                </Link>
 
             </section>
 
