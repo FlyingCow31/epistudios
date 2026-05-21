@@ -2,11 +2,11 @@ import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 
-import TrustpilotWidget from "@/app/components/TrustPilotWidget";
-import {OrderButton} from "@/app/components/Buttons";
+import {ServiceButton} from "@/app/components/Buttons";
 import {FaqServices} from "@/app/components/faq";
 import React from "react";
 
+import {ArrowRightIcon} from "lucide-react";
 
 
 export default function page() {
@@ -31,9 +31,7 @@ export default function page() {
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-lg flex flex-col gap-3 items-center lg:w-[60%] lg:items-start'}>
                         <h1 className={"text-main text-xl text-center font-semibold lg:text-5xl lg:p-3"}>Découvrez nos créations</h1>
                         <p className={'lg:p-3'}>EPI Studio s&#39;est, au fil du temps, constitué un portfolio pour que vous puissiez nous faire confiance! Accèdez-y via ce bouton.</p>
-                        <Link href={"/portfolio"} className={'lg:block lg:pl-3 lg:pb-3'}>
-                            <button className={'bg-main p-3 text-white rounded-xl'}>Accèdez à notre portfolio →</button>
-                        </Link>
+                        <ServiceButton name={"Accèdez à notre portfolio"} path={"/portfolio"}/>
                     </div>
 
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-lg lg:w-[60%]'}>
@@ -48,13 +46,13 @@ export default function page() {
 
                 <div className={'flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:w-[60%] lg:mx-auto'}>
 
-                    <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
+                    <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-full'}>
                         <h1 className={'smalltitle'}>Projet sur-mesure</h1>
                         <p>✔ Databases & authentification</p>
                         <p>✔ SEO (visibilité optimisée)</p>
                         <p>✔ Design graphique</p>
                         <p>✔ Back-end avancé</p>
-                        <OrderButton/>
+                        <ServiceButton path={"/contact"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
                         <p className={'text-justify text-main'}>
@@ -74,14 +72,14 @@ export default function page() {
                         <p>🤖 Configuration des bots inclus </p>
                         <p>Serveurs communautaires, spécialisés, de travail ou juste entre amis! </p>
                         <p> </p>
-                        <OrderButton name={"Recevoir votre serveur →"}/>
+                        <ServiceButton path={"/contact"} name={"Recevoir votre serveur"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
                         <h1 className={'smalltitle'}>Bot Discord personnalisé</h1>
                         <p>✔ Toutes fonctionnalités possibles </p>
                         <p>✔ Nombre de commandes illimité</p>
                         <p className={'lg:mb-auto'}>❌ Hébergement non-inclus </p>
-                        <OrderButton/>
+                        <ServiceButton path={"/contact"}/>
                     </div>
                 </div>
 
@@ -97,14 +95,14 @@ export default function page() {
                         <p>🛡️ Anti-Cheat </p>
                         <p>👥 Ranks personnalisés </p>
                         <p>🔗 Intégration Discord </p>
-                        <OrderButton name={"Nous contacter →"}/>
+                        <ServiceButton path={"/contact"} name={"Nous contacter"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
                         <p className={'text-justify text-main'}>
                             <span className={"boldtext"}>Serveur 100% Personnalisé!</span>
                         </p>
                         <p className={'text-justify text-main lg:mb-auto'}><span className={"boldtext"}>Obtenez un guide gratuit &#34;Comment modifier votre serveur&#34; </span>qui vous apprend à créer et modifier votre serveur Minecraft! </p>
-                        <OrderButton/>
+                        <ServiceButton path={"/contact"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
                         <h1 className={'smalltitle'}>Plugins personnalisés</h1>
@@ -112,7 +110,7 @@ export default function page() {
                         <p>📜 Documentation incluse </p>
                         <p>🤝 Assistance 6 mois </p>
                         <p className={'lg:mb-auto'}>🗃️ Fichier de configuration </p>
-                        <OrderButton name={"Discuter de votre projet →"}/>
+                        <ServiceButton path={"/contact"} name={"Discuter de votre projet"}/>
                     </div>
                     <div className={'bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]'}>
                         <p className={'text-justify text-main'}>
@@ -121,15 +119,20 @@ export default function page() {
                         <p className={'text-justify text-main'}>AutoMod, factions, addons, tout est possible avec nos plugins!</p>
                         <p className={'text-justify text-main'}>Pour assurer la continuité, tous nos plugins sont dotés d&#39;une documentation complète en cas de changement de développeurs !</p>
                         <p className={'text-justify text-main'}>Vous pouvez également modifier votre plugin avec les fichiers de configuration !</p>
-                        
-                        <OrderButton/>
+
+                        <ServiceButton path={"/contact"}/>
                     </div>
                 </div>
 
                 <h1 className={"bigtitle text-center mt-10"}>Et bien plus...</h1>
                 <p className={"opacity-50 text-center mb-10 lg:mb-0"}>Projets sur-mesures</p>
                 <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
-                <OrderButton classname={"w-[80%] block mx-auto lg:w-[60%] lg:text-3xl"} name={"Détailler votre projet →"}/>
+                <Link href={"/contact"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg">
+                    <div className={'flex items-center gap-2'}>
+                        <p>Accèdez à notre portfolio</p>
+                        <ArrowRightIcon/>
+                    </div>
+                </Link>
 
                 <h1 className={"bigtitle text-center mt-10"}>F.A.Q</h1>
 

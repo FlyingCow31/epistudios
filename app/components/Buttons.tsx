@@ -1,14 +1,19 @@
 import Link from "next/link";
+import {ArrowRightIcon} from "lucide-react";
+import React from "react";
 
 interface ButtonProps {
-    classname?: string,
+    path: string,
     name?: string
 }
 
-export function OrderButton({classname, name} : ButtonProps) {
+export function ServiceButton({path, name} : ButtonProps) {
     return (
-        <Link href={"/contact"}>
-            <button className={`${classname || "w-[100%]"} bg-main py-2 px-5 text-white font-semibold rounded-lg shadowthing`}>{name || "En parler →"}</button>
+        <Link href={path} className="lg:block lg:pl-3 lg:pb-3 lg:text-2xl bg-main p-3 text-white rounded-lg">
+            <div className={'flex items-center gap-2'}>
+                <p>{name || "En parler"}</p>
+                <ArrowRightIcon/>
+            </div>
         </Link>
     )
 }

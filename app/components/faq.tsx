@@ -1,5 +1,7 @@
 "use client"
 import {useState} from "react";
+import {Plus} from "lucide-react";
+
 
 const services = [
     {
@@ -74,7 +76,7 @@ export function FaqServices() {
                     <div key={index} className={`rounded-xl p-4 ${openIndex == index ? "bg-secdark" : "bg-sec" }`}>
                         <button className={'w-full flex font-bold'} onClick={() => toggle(index)}>
                             {quest.question}
-                            <p className={`ml-auto inline-block transition-transform duration-120 ${openIndex == index ? "rotate-45 font-extrabold" : "rotate-0 font-normal"} `}>+</p>
+                            <p className={`ml-auto inline-block transition-transform duration-120 ${openIndex == index ? "rotate-45 font-extrabold" : "rotate-0 font-normal"} `}><Plus className="text-main"/></p>
                         </button>
 
                         {/*Si l'index est pareil que l'open index, alors on ouvre la div*/}
