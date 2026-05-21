@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import {FaLink} from "react-icons/fa";
+
+
 
 interface CardsProps {
     src: string,
@@ -19,7 +22,7 @@ export default function PortfolioCard({src, alt, title, description, mainfeat, d
                 <Image src={src} alt={alt} fill className={'object-fit'}/>
             </div>
             <div>
-                <p className={'smalltitle mt-3'}>{title}</p>
+                <p className={'text-3xl mt-3 text-main font-bold'}>{title}</p>
                 <p className={' text-justify opacity-70'}>
                     {description}
                 </p>
@@ -37,8 +40,22 @@ export default function PortfolioCard({src, alt, title, description, mainfeat, d
                     })}
                 </div>
 
-                {link && <Link href={`${link}`}><p className={' mt-3'}> 🔗 <span className={'text-sec underline'}>{link}</span></p></Link>}
-                <Link href={"/contact"} className={'mt-1'}><p className={'mt-1 bg-main shadow py-2 w-full text-center rounded text-white'}>Nous contacter</p> </Link>
+                {link && (
+                    <div className="py-5 flex flex-col gap-2">
+                        <Link
+                            href={link}
+                            className="flex items-center gap-2 w-fit">
+                            <FaLink className="text-main"/>
+
+                            <p className="underline">
+                                {link}
+                            </p>
+                        </Link>
+                    </div>
+                )}
+                <Link href={"/contact"} className={'mt-1'}>
+                    <p className={'mt-1 bg-main shadow py-2 w-full text-center rounded text-white'}>Nous contacter</p>
+                </Link>
 
             </div>
 

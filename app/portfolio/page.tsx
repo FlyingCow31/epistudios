@@ -73,10 +73,8 @@ export default function Portfolio() {
                 </div>
                 <div className={'shadow bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[80%] lg:py-12'}>
                     <h1 className={'text-center font-bold text-white text-5xl'}>Nos projets répondent à vos attentes?</h1>
-                    <Link href={"/contact"}>
-                        <button className={'mt-6 bg-sec p-2 rounded-xl font-semibold lg:text-3xl'}>
-                            Nous contacter
-                        </button>
+                    <Link href={"/contact"} className={'mt-6 bg-sec p-4 rounded-xl font-semibold lg:text-2xl hover:scale-105 transition-all duration-300'}>
+                        Nous contacter
                     </Link>
                 </div>
 
