@@ -6,179 +6,10 @@ import {recrutementlogic} from "@/app/actions/recrutements";
 import Link from "next/link";
 import ContactBehaviour from "@/app/actions/contact";
 import {FaCheck, FaUpload} from "react-icons/fa";
-
-
-const questionsCommunes = [
-    {
-        label: "Nom",
-        type: "text",
-        name: "surname",
-        required: true
-    },
-    {
-        label: "Prénom",
-        type: "text",
-        name: "name",
-        required: true
-    },
-    {
-        label: "Âge",
-        type: "number",
-        name: "age",
-        required: true
-    },
-    {
-        label: "Email",
-        type: "email",
-        name: "email",
-        placeholder: "gael.tournier@epistudios.fr",
-        required: true
-    }
-]
-
-const questionsDev = [
-    {
-        label: "Avez-vous de l'experience dans le développement de software? ",
-        type:"text",
-        name: "experience",
-        placeholder: "J'ai déja fait X projet, étude de cas..."
-    },
-    {
-        label: "Quels-sont vos langages maitrisés?",
-        type:"text",
-        name: "langages",
-        placeholder: "Java, JS, React, etc."
-    },
-    {
-        label: "Quel est votre langage de prédilection?",
-        type:"text",
-        name: "prefere",
-        placeholder: "J'adore l'assembleur parce que..."
-    },
-    {
-        label: "Décrivez, en détail, un projet sur lequel vous avez joué un rôle majeur.",
-        type:"text",
-        name: "projet",
-        placeholder: "J'ai été dirigeant d'une équipe de 12 développeurs..."
-    },
-    {
-        label: "Comment travaillez-vous en équipe?",
-        type:"text",
-        name: "equipe",
-        placeholder: "J'utilise git avec des règles..."
-    },
-    {
-        label: "Comment sécurisez-vous votre code?",
-        type:"text",
-        name: "securite",
-        placeholder: "Je créer des .env ..."
-    },
-    {
-        label: "Avez-vous un portfolio ? Si oui, insérez le ici.",
-        type:"text",
-        name: "portfolio",
-        placeholder: "https://epistudios.fr/portfolio"
-    },
-    {
-        label: "Avez-vous de l'experience avec des clients?",
-        type:"text",
-        name: "clients",
-        placeholder: "Oui, j'ai déja fait du freelance..."
-    },
-]
-
-const questionsGfx = [
-    {
-        label: "Avez-vous déja travaillé sur des programmes informatiques? (UI/UX, etc.)",
-        type:"text",
-        name: "uiux",
-        placeholder: "J'ai déja fait des logos info..."
-    },
-    {
-        label: "Quels sont vos styles maitrisés?",
-        type:"text",
-        name: "styles",
-        placeholder: "Néo-brutalisme, etc."
-    },
-    {
-        label: "Comment organisez-vous la création lors d'une commande?",
-        type:"text",
-        name: "organisation",
-        placeholder: "Je commence par créer une V1..."
-    },
-    {
-        label: "Décrivez un projet sur lequel vous avez joué un rôle majeur.",
-        type:"text",
-        name: "majeur",
-        placeholder: "J'ai été lead d'une équipe de designers..."
-    },
-    {
-        label: "Quelle est votre spécialisation?",
-        type:"text",
-        name: "specialisation",
-        placeholder: "Design 3d, Animation, etc."
-    },
-    {
-        label: "Avez-vous un portfolio public ? (si oui, intègrez le lien)",
-        type:"text",
-        name: "portfoliogfx",
-        placeholder: "behance.net/votrenom ..."
-    },
-    {
-        label: "Quels sont vos logiciels utilisés?",
-        type:"text",
-        name: "logiciels",
-        placeholder: "Lightroom, Blender, etc."
-    },
-]
-const questionsCM = [
-    {
-        label: "Quelles langues maitrisez-vous ? (B2 minimum)",
-        type:"text",
-        name: "langues",
-        placeholder: "Anglais, Français, espagnol, etc."
-    },
-    {
-        label: "Quelle est votre experience avec le CM (Community Management) ?",
-        type:"text",
-        name: "experiencecm",
-        placeholder: "J'ai été CM de..."
-    },
-    {
-        label: "Quels sont vos réseaux sociaux de prédilection ?",
-        type:"text",
-        name: "predilection",
-        placeholder: "Je connais l'algorithme de tiktok..."
-    },
-    {
-        label: "Décrivez un projet sur lequel vous avez joué un rôle majeur",
-        type:"text",
-        name: "rolecm",
-        placeholder: "J'étais chargé de comm' sur un évènement..."
-    },
-    {
-        label: "Comment gérez-vous les retours des utilisateurs?",
-        type:"text",
-        name: "retoursusers",
-        placeholder: "Je réponds aux commentaires..."
-    },
-    {
-        label: "Comment mettez-vous en avant la marque que vous représentez?",
-        type:"text",
-        name: "avantmarque",
-        placeholder: "Je crée des contenus engageants..."
-    },
-    {
-        label: "Comment fidélisez-vous la communautée d'une marque?",
-        type:"text",
-        name: "fidelisation",
-        placeholder: "Events, posts, etc."
-    },
-]
-
-
-
-
+import CommonList from "@/app/data/questions/common";
+import DeveloperList from "@/app/data/questions/developer";
+import CommunityManagerList from "@/app/data/questions/communityManager";
+import GraphicList from "@/app/data/questions/graphic";
 
 interface FormProps {
     label?: string,
@@ -189,9 +20,9 @@ interface FormProps {
 }
 
 const questionsByRole = {
-    developpeur: questionsDev,
-    graphiste: questionsGfx,
-    CM: questionsCM
+    developpeur: DeveloperList,
+    graphiste: GraphicList,
+    CM: CommunityManagerList
 }
 interface FormValue {
     choix: "developpeur" | "graphiste" | "CM"
@@ -277,7 +108,7 @@ export default function FormGeneral() {
                             Détaillez un maximum, plus vous parlez, mieux c&#39;est ! 
                         </p>
                         
-                        {questionsCommunes.map((quest) => {
+                        {CommonList.map((quest) => {
                             return (
                                 <React.Fragment key={quest.name}>
                                     <FormInputText  {...quest}/>
