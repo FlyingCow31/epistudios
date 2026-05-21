@@ -14,8 +14,12 @@ export default function Navbar() {
                 <Image src={"/feuille-icone.png"} alt={"feuille navbar"} width={40} height={40} className={"-scale-x-100 origin-center"}/>
 
             {/*TODO: rajouter les liens, pareil pour le footer (pour le mobile vu que il n'y a pas ces icones dans la nav mobile)*/}
-            <Link href={"https://discord.gg/PvKeHzTwdU"} className={"absolute left-10"}><FaDiscord className="text-main hover:scale-105 transition-all duration-300" size={45} /></Link>
-            <Link href={"https://github.com/EPI-Studios"} className={"absolute left-25"}><FaGithub className="text-main hover:scale-105 transition-all duration-300" size={45} /></Link>
+            <Link href={"https://discord.gg/PvKeHzTwdU"} className={"absolute left-10"}>
+                <FaDiscord className="text-main hover:scale-105 transition-all duration-300" size={45} />
+            </Link>
+            <Link href={"https://github.com/EPI-Studios"} className={"absolute left-25"}>
+                <FaGithub className="text-main hover:scale-105 transition-all duration-300" size={45} />
+            </Link>
         </div>
     )
 }
