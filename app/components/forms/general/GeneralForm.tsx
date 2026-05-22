@@ -4,16 +4,18 @@ import React, {useState} from "react";
 import {recrutementlogic} from "@/app/actions/recrutements";
 import CommonList from "@/app/data/questions/common";
 import {InputTextForm} from "@/app/components/forms/input/InputTextForm";
-import Image from "next/image";
 import {SpecialiseForm} from "@/app/components/forms/specialise/SpecialiseForm";
 import {StarForm} from "@/app/components/forms/star/StarForm";
 import Link from "next/link";
-import {RecrumentsFAQ} from "@/app/components/faq/recrutements/RecrumentsFAQ";
+import {FaCheck, FaUpload} from "react-icons/fa";
+import {FAQ} from "@/app/components/faq/FAQ";
+import RecrutementsList from "@/app/data/faq/recrutements";
 
 export default function GeneralForm() {
     const [openForm, setOpenForm] = useState< string | null>(null);
     const [formVisibility, setFormVisibility] = useState(false);
     const [fileUpload, setFileUpload] = useState(false);
+    const [fileName, setFileName] = useState("");
     const [formEnd, setFormEnd] = useState(false);
 
     const [loading, setLoading] = useState(false);
@@ -74,7 +76,7 @@ export default function GeneralForm() {
 
                         <div className={'my-6 w-80 mx-auto flex flex-col gap-3 w-[100%]'}>
                             <h1 className={'titleform'}>F.A.Q - Avant de commencer la candidature</h1>
-                            <RecrumentsFAQ/>
+                            <FAQ questions={RecrutementsList}/>
                             <p className={"text-center font-xl text-main"}>
                                 Vous avez d&#39;autres questions? <br/>
                                 Pas de panique, vous pourrez les poser à la fin du formulaire.
@@ -110,18 +112,50 @@ export default function GeneralForm() {
                                           rows={5} className={"mx-auto w-70 bg-seclight border-sec border rounded-sm p-2 outline-none lg:w-[100%]"}/>
                             </label>
 
-                            <label className={'flex flex-col items-center'}>
+                            <label className="flex flex-col items-center gap-3 lg:w-[90%]">
+
                                 <span className={'titleform'}>Joignez votre CV à votre candidature. Pas besoin de lettre de motivation! (PDF uniquements.)</span>
-                                <input
-                                    type={"file"}
-                                    name={"cv"}
-                                    required={true}
-                                    className={"hidden mt-3"}
-                                    onChange={() => {setFileUpload(true)}}
-                                    accept={"application/pdf"}
-                                />
-                                { fileUpload ? <p className={"text-6xl mt-3"}>✅</p> : <Image src={"/upload-icone.png"} alt={"Upload"} width={60} height={60} className={"mt-3"}/>}
+
+                                <div className="flex flex-col items-center justify-center border border-sec rounded-sm w-full p-5 gap-4">
+
+                                    <label
+                                        htmlFor="cv-upload">
+                                        Glissez votre CV ici ou cliquez pour sélectionner un fichier
+                                    </label>
+
+                                    <input
+                                        id="cv-upload"
+                                        type="file"
+                                        name="cv"
+                                        required
+                                        accept="application/pdf"
+                                        className="hidden"
+                                        onChange={(e) => {
+                                            const file = e.target.files?.[0];
+
+                                            if (file) {
+                                                setFileUpload(true);
+                                                setFileName(file.name);
+                                            }
+                                        }}/>
+
+                                    {
+                                        fileUpload
+                                            ? <FaCheck size={100} className="text-main"/>
+                                            : <FaUpload size={100} className="text-main"/>
+                                    }
+
+                                </div>
                             </label>
+
+                            {
+                                fileName && (
+                                    <p className="text-main">
+                                        Fichier importé : {fileName}
+                                    </p>
+                                )
+                            }
+
                         </div>
 
 
@@ -141,7 +175,7 @@ export default function GeneralForm() {
                                             block: "center",
                                         }), 0);
                                     }}
-                                    className={"bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm"}
+                                    className={"bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm hover:scale-105 transition-all duration-300"}
                                 >
                                     Suivant
                                 </button>
@@ -158,7 +192,7 @@ export default function GeneralForm() {
                                 </p>
                                 <StarForm/>
 
-                                <button type={"submit"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm'}>Validez votre candidature</button>
+                                <button type={"submit"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm hover:scale-105 transition-all duration-300'}>Validez votre candidature</button>
                                 {loading && (<p>Envoi...</p>)}
                             </div>
                         )}
@@ -171,10 +205,8 @@ export default function GeneralForm() {
                         <div className={`${classDiv} items-center`}>
                             <h1 className={'bigtitle'}>Merci de votre candidature!</h1>
                             <p className={'text-center boldtext'}>Vous avez reçu un mail de confirmation.</p>
-                            <Link href={"/"}>
-                                <button className={'bg-main text-white p-4 rounded-xl'}>
-                                    Retour à l&#39;accueil
-                                </button>
+                            <Link href={"/"} className={"bg-main text-white p-4 rounded-xl hover:scale-105 transition-all duration-300"}>
+                                Retour à l&#39;accueil
                             </Link>
                         </div>
                     )}
@@ -182,10 +214,8 @@ export default function GeneralForm() {
                         <div className={`${classDiv} items-center`}>
                             <h1 className={'bigtitle'}>Erreur :(</h1>
                             <p className={'text-center boldtext'}>Veuillez recommencer ou contacter EPI STUDIO.</p>
-                            <Link href={"/"}>
-                                <button className={'bg-main text-white p-4 rounded-xl'}>
-                                    Retour à l&#39;accueil
-                                </button>
+                            <Link href={"/"} className={"bg-main text-white p-4 rounded-xl hover:scale-105 transition-all duration-300"}>
+                                Retour à l&#39;accueil
                             </Link>
                         </div>
                     )}
