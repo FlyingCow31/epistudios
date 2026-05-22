@@ -43,7 +43,7 @@ export default function Home() {
                     <Link
                         href={"/projets"}
                         className="cursor-pointer mt-3 text-main text-lg underline lg:text-2xl w-full">
-                        <div className="flex items-center justify-end gap-2">
+                        <div className="flex items-center justify-end gap-2 hover:translate-x-2 transition-all duration-300">
                             <p>Découvrir Epi Studio</p>
                             <ArrowRightIcon />
                         </div>

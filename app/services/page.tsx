@@ -4,7 +4,8 @@ import Footer from "@/app/components/footer/Footer";
 import Link from "next/link";
 import {ArrowRightIcon} from "lucide-react";
 import {ServiceButton} from "@/app/components/buttons/service/ServiceButton";
-import {ServicesFAQ} from "@/app/components/faq/services/ServicesFAQ";
+import {FAQ} from "@/app/components/faq/FAQ";
+import ServicesList from "@/app/data/faq/services";
 
 
 export default function page() {
@@ -126,8 +127,8 @@ export default function page() {
                 <p className={"opacity-50 text-center mb-10 lg:mb-0"}>Projets sur-mesures</p>
                 <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
 
-                <Link href={"/portfolio"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg">
-                    <div className={'flex items-center gap-2'}>
+                <Link href={"/portfolio"} className="lg:block lg:pl-3 lg:pb-3 w-[80%] block mx-auto lg:w-[60%] lg:text-3xl bg-main p-3 text-white rounded-lg group">
+                    <div className={'flex items-center gap-2 group-hover:translate-x-[2%] transition-all duration-300'}>
                         <p>Accèdez à notre portfolio</p>
                         <ArrowRightIcon/>
                     </div>
@@ -135,7 +136,7 @@ export default function page() {
 
                 <h1 className={"bigtitle text-center mt-10"}>F.A.Q</h1>
 
-                <ServicesFAQ/>
+                <FAQ questions={ServicesList}/>
 
             </main>
             <Footer/>

@@ -17,7 +17,7 @@ export function ProjectCard({src, title, description, ctatitle, cta} : Props) {
                 <h1 className={"text-main text-4xl font-bold mt-3 text-center lg:text-left"}>{title}</h1>
 
                 <p className={"text-center my-3 lg:text-left"}>{description}</p>
-                <Link href={`${cta}`} target={"_blank"} rel={'noopener noreferrer'} className={"bg-main text-white py-3 px-6 rounded-2xl"}>
+                <Link href={`${cta}`} target={"_blank"} rel={'noopener noreferrer'} className={"bg-main text-white py-3 px-6 rounded-2xl hover:scale-105 transition-all duration-300"}>
                     {ctatitle}
                 </Link>
             </div>
