@@ -1,5 +1,12 @@
-import Link from "next/link";
+/*
+*
+* Ce code ne sert à rien, il ne fait rien, mais je le laisse quand même au cas ou quelque chose de prévu est à faire ici!
+*
+* */
 
+
+/*
+import Link from "next/link";
 
 interface ProductProps {
     product: string,
@@ -30,3 +37,4 @@ export default function ProductDiv({product, bullet, cta} : ProductProps) {
         </div>
     )
 }
+*/

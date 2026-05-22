@@ -1,34 +1,10 @@
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import ProjectCard, {MembersCard} from "@/app/components/projet";
-import MembresList from "@/app/data/membres";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/footer/Footer";
+import MembresList from "@/app/data/services/membres";
+import ProjectsList from "@/app/data/services/projects";
 import Link from "next/link";
-import Script from "next/script";
-
-const projects = [
-    {
-        src: "https://placehold.co/600x400?text=?",
-        title: "Projet Mystère...",
-        description: "Un projet mystère en développement qui arrive très bientôt... Qui sait, peut-être qu'un indice est caché quelque part... ",
-        ctatitle: "Retour à l'accueil",
-        cta: "/"
-    },
-    {
-        src: "/projectsicons/Moud.png",
-        title: "Moud",
-        description: "Un Engine révolutionnaire Typescript pour créer des jeux à l'intérieur même de minecraft. Créez facilement vos jeux vidéos avec de la logique serveur, de la modelistation et beaucoup d'autres features, et tout ça gratuitement! ",
-        ctatitle: "Essayer gratuitement",
-        cta: "https://moud.epistudios.fr/"
-    },
-    {
-        src: "/projectsicons/meekup-logo.png",
-        title: "Meekup",
-        description: "Un site d'upload de fichiers fait avec un backend en Flask. ",
-        ctatitle: "Essayer gratuitement",
-        cta: "https://github.com/EPI-Studios/Meekup"
-    }
-]
-
+import {MemberCard} from "@/app/components/cards/member/MemberCard";
+import {ProjectCard} from "@/app/components/cards/project/ProjectCard";
 
 export default function Projects() {
     return (
@@ -45,7 +21,7 @@ export default function Projects() {
                 </section>
 
                 <section className={"flex flex-col gap-10 my-6"}>
-                    {projects.map((project, index) => {
+                    {ProjectsList.map((project, index) => {
                         return (
                                 <ProjectCard key={index} {...project}/>
                             )
@@ -56,17 +32,14 @@ export default function Projects() {
                 <section className={"flex flex-col gap-10 my-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[70%] lg:mx-auto"}>
                     {MembresList.map((members, index) => {
                         return(
-                            <MembersCard key={index} {...members}/>
+                            <MemberCard key={index} {...members}/>
                         )
                     })}
                 </section>
-
-                <div className={'bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[70%] lg:py-12'}>
-                    <h1 className={'text-center font-bold text-white text-5xl'}>Tu souhaites faire partie du studio ?</h1>
-                    <Link href={"/recrutements"}>
-                        <button className={'mt-6 bg-sec p-2 rounded-xl font-semibold lg:text-3xl'}>
-                           Nous rejoindre
-                        </button>
+                <div className={'shadow bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[80%] lg:py-12'}>
+                    <h1 className={'text-center font-bold text-white text-5xl'}>Tu souhaites faire partie du studio?</h1>
+                    <Link href={"/contact"} className={'mt-6 bg-sec p-4 rounded-xl font-semibold lg:text-2xl hover:scale-105 transition-all duration-300'}>
+                        Nous contacter
                     </Link>
                 </div>
             </main>
