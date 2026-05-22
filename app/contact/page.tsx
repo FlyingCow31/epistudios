@@ -1,5 +1,5 @@
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/footer/Footer";
 import {ContactForm} from "@/app/components/forms/contact/ContactForm";
 
 

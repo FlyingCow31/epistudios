@@ -3,7 +3,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/navbar/Navbar";
 
 export default function TrustpilotWidget() {
     useEffect(() => {

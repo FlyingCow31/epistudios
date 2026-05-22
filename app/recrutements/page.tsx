@@ -1,5 +1,5 @@
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/footer/Footer";
 import GeneralForm from "@/app/components/forms/general/GeneralForm";
 
 export default function Page() {

@@ -1,6 +1,6 @@
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
 import Link from "next/link";
-import Footer from "@/app/components/Footer";
+import Footer from "@/app/components/footer/Footer";
 import Image from "next/image";
 import {ArrowRightIcon} from "lucide-react";
 import React from "react";

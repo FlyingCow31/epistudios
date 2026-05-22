@@ -1,5 +1,5 @@
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/footer/Footer";
 import MembresList from "@/app/data/services/membres";
 import ProjectsList from "@/app/data/services/projects";
 import Link from "next/link";

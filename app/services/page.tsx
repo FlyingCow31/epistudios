@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar, {MobileNavbar} from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
+import Footer from "@/app/components/footer/Footer";
 import Link from "next/link";
 import {ArrowRightIcon} from "lucide-react";
 import {ServiceButton} from "@/app/components/buttons/service/ServiceButton";
