@@ -2,13 +2,13 @@
 
 import React, {useState} from "react";
 import {recrutementlogic} from "@/app/actions/recrutements";
-import {FaqRecrutements} from "@/app/components/faq";
 import CommonList from "@/app/data/questions/common";
 import {InputTextForm} from "@/app/components/forms/input/InputTextForm";
 import Image from "next/image";
 import {SpecialiseForm} from "@/app/components/forms/specialise/SpecialiseForm";
 import {StarForm} from "@/app/components/forms/star/StarForm";
 import Link from "next/link";
+import {RecrumentsFAQ} from "@/app/components/faq/recrutements/RecrumentsFAQ";
 
 export default function GeneralForm() {
     const [openForm, setOpenForm] = useState< string | null>(null);
@@ -74,7 +74,7 @@ export default function GeneralForm() {
 
                         <div className={'my-6 w-80 mx-auto flex flex-col gap-3 w-[100%]'}>
                             <h1 className={'titleform'}>F.A.Q - Avant de commencer la candidature</h1>
-                            <FaqRecrutements/>
+                            <RecrumentsFAQ/>
                             <p className={"text-center font-xl text-main"}>
                                 Vous avez d&#39;autres questions? <br/>
                                 Pas de panique, vous pourrez les poser à la fin du formulaire.

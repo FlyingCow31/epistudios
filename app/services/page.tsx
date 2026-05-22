@@ -1,12 +1,10 @@
+import React from "react";
 import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
-
-import {FaqServices} from "@/app/components/faq";
-import React from "react";
-
 import {ArrowRightIcon} from "lucide-react";
 import {ServiceButton} from "@/app/components/buttons/service/ServiceButton";
+import {ServicesFAQ} from "@/app/components/faq/services/ServicesFAQ";
 
 
 export default function page() {
@@ -137,7 +135,7 @@ export default function page() {
 
                 <h1 className={"bigtitle text-center mt-10"}>F.A.Q</h1>
 
-                <FaqServices/>
+                <ServicesFAQ/>
 
             </main>
             <Footer/>
