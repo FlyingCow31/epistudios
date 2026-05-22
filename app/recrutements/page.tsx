@@ -1,6 +1,6 @@
 import Navbar, {MobileNavbar} from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import FormGeneral from "@/app/components/FormInputs";
+import GeneralForm from "@/app/components/forms/general/GeneralForm";
 
 export default function Page() {
     return (
@@ -16,7 +16,7 @@ export default function Page() {
                     <span className={"boldtext text-main underline"}>Rejoignez EPI Studio !</span>
                 </p>
 
-                <FormGeneral/>
+                <GeneralForm/>
                 
             </main>
             <Footer/>
