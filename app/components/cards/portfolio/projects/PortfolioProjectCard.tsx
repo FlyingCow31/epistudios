@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import {FaLink} from "react-icons/fa";
-import {Props} from "@/app/components/cards/portfolio/props";
+import {Props} from "@/app/components/cards/portfolio/projects/props";
 
-export default function PortfolioCard({src, alt, title, description, mainfeat, descfeat, tags, link}: Props) {
+export default function PortfolioProjectCard({src, alt, title, description, mainfeat, descfeat, tags, link}: Props) {
     return (
         <div className={'w-[80%] mx-auto bg-white p-3 rounded-xl shadow lg:w-full'}>
             <div className={'relative h-50 w-full lg:h-70'}>
