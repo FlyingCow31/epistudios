@@ -27,8 +27,7 @@ export default function Portfolio() {
 
                 <h1 className={'bigtitle'}>Gallerie</h1>
                 <p className={'flex justify-center text-justify w-[80%] mx-auto'}>
-                    Retrouvez toutes notre galerie graphiques réalises au cours de projet et de commaandes pour nos clients.
-                </p>
+                    Découvrez notre galerie. Chaque œuvre présentée ici a été réalisée dans le cadre d&#39;un projet ou d&#39;une commande client.                </p>
                 <div className={'flex flex-col gap-6 my-6 lg:w-[80%] lg:mx-auto'}>
                     <div className={'items-center my-6 px-4 columns-1 md:columns-3 lg:columns-4 gap-4'}>
                         {
