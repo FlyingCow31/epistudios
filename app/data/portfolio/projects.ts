@@ -1,4 +1,4 @@
-const ProjectsList = [
+export const ProjectsList = [
     {
         src: "https://placehold.co/600x400?text=?",
         alt: "MaelSocialMedia est une entreprise qui accompagne les ",

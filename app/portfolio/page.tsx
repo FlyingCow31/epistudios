@@ -2,6 +2,7 @@ import Navbar, {MobileNavbar} from "@/app/components/navbar/Navbar";
 import Footer from "@/app/components/footer/Footer";
 import Link from "next/link";
 import ProjectsList from "@/app/data/portfolio/projects";
+import GalleryList from "@/app/data/portfolio/gallery";
 import PortfolioCard from "@/app/components/cards/portfolio/PortfolioCard";
 
 export default function Portfolio() {
@@ -22,6 +23,7 @@ export default function Portfolio() {
                         )
                     })}
                 </div>
+
                 <div className={'shadow bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[80%] lg:py-12'}>
                     <h1 className={'text-center font-bold text-white text-5xl'}>Nos projets répondent à vos attentes?</h1>
                     <Link href={"/contact"} className={'mt-6 bg-sec p-4 rounded-xl font-semibold lg:text-2xl hover:scale-105 transition-all duration-300'}>
