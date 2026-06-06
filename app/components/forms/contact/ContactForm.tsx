@@ -4,11 +4,17 @@ import ContactBehaviour from "@/app/actions/contact";
 import {InputTextForm} from "@/app/components/forms/input/InputTextForm";
 import {FaCheck, FaUpload} from "react-icons/fa";
 import Link from "next/link";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export function ContactForm() {
 
     const [fileName, setFileName] = useState("");
+
+    const time = 30000;
+    const countdownItem = "contactFormCooldown"
+
+    const [isCooldown, setIsCooldown] = useState<boolean>(false);
+    const [secondsLeft, setSecondsLeft] = useState(0);
 
     const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6 lg:w-[60%]"
     const [fileUpload, setFileUpload] = useState(false);
@@ -16,18 +22,71 @@ export function ContactForm() {
 
     const [success, setSuccess] = useState(false);
 
+    const startCooldownTimer = (cooldownUntil: number) => {
+        setIsCooldown(true);
+
+        const interval = setInterval(() => {
+            const remaining = cooldownUntil - Date.now();
+            const seconds = Math.ceil(remaining / 1000);
+
+            if (remaining <= 0) {
+                clearInterval(interval);
+                setIsCooldown(false);
+                setSecondsLeft(0);
+                localStorage.removeItem(countdownItem);
+                return;
+            }
+
+            setSecondsLeft(seconds);
+        }, 1000);
+    };
+
+    useEffect(() => {
+        const cooldownUntil = localStorage.getItem(countdownItem);
+
+        if (!cooldownUntil) return;
+
+        const cooldownUntilNumber = Number(cooldownUntil);
+
+        if (cooldownUntilNumber > Date.now()) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            startCooldownTimer(cooldownUntilNumber);
+        } else {
+            localStorage.removeItem(countdownItem);
+        }
+    }, []);
+
     const handleSubmit = async (e: React.BaseSyntheticEvent) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const result = await ContactBehaviour(formData);
 
-        if (result.success) {
+        if (isCooldown) return;
+
+        setIsCooldown(true);
+
+        const cooldownUntil = Date.now() + time;
+
+        startCooldownTimer(cooldownUntil);
+
+        localStorage.setItem(countdownItem, cooldownUntil.toString());
+
+        try {
+            const formData = new FormData(e.currentTarget);
+            const result = await ContactBehaviour(formData);
+
+
+            if (result.success) {
+                setFormEnd(true);
+                setSuccess(true);
+            } else {
+                setFormEnd(true);
+                setSuccess(false);
+            }
+        } catch (error) {
+            console.log("Erreur dans la communication", error);
             setFormEnd(true);
-            setSuccess(true);
-
-        } else {
-            console.log("Erreur dans la communication");
+            setSuccess(false);
         }
+
     }
     return (
         <>
@@ -100,7 +159,12 @@ export function ContactForm() {
                         }
 
                         <InputTextForm type={"text"} name={"budget"} placeholder={"Indiquez un budget"} required={true}/>
-                        <button type={"submit"} className={'cursor-pointer bg-main w-full block mx-auto px-9 py-3 text-white shadow rounded-sm hover:bg-transparent hover:text-main transition-all duration-300'}>Envoyer</button>
+                        <button type={"submit"} disabled={isCooldown} className={'cursor-pointer bg-main w-full block mx-auto px-9 py-3 text-white shadow rounded-sm hover:bg-transparent hover:text-main transition-all duration-300' +
+                            'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-main disabled:hover:text-white'}>
+                            {isCooldown
+                                ? `Veuillez patienter (${secondsLeft}s)`
+                                : "Envoyer"}
+                        </button>
                     </form>
                 </section>
             )}
