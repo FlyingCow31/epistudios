@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {recrutementlogic} from "@/app/actions/recrutements";
 import CommonList from "@/app/data/questions/common";
 import {InputTextForm} from "@/app/components/forms/input/InputTextForm";
@@ -18,24 +18,83 @@ export default function GeneralForm() {
     const [fileName, setFileName] = useState("");
     const [formEnd, setFormEnd] = useState(false);
 
+    const time = 30000;
+    const countdownItem = "recrutmentFormCooldown"
+
+    const [isCooldown, setIsCooldown] = useState<boolean>(false);
+    const [secondsLeft, setSecondsLeft] = useState(0);
+
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [success, setSuccess] = useState(false);
 
-    const handleSubmit = async (e: React.BaseSyntheticEvent) => {
-        setLoading(true)
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const result = await recrutementlogic(formData);
+    useEffect(() => {
+        const cooldownUntil = localStorage.getItem(countdownItem);
 
-        if (result.success) {
+        if (!cooldownUntil) return;
+
+        const cooldownUntilNumber = Number(cooldownUntil);
+
+        if (cooldownUntilNumber > Date.now()) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect,react-hooks/immutability
+            startCooldownTimer(cooldownUntilNumber);
+        } else {
+            localStorage.removeItem(countdownItem);
+        }
+    }, []);
+
+    const startCooldownTimer = (cooldownUntil: number) => {
+        setIsCooldown(true);
+
+        const interval = setInterval(() => {
+            const remaining = cooldownUntil - Date.now();
+            const seconds = Math.ceil(remaining / 1000);
+
+            if (remaining <= 0) {
+                clearInterval(interval);
+                setIsCooldown(false);
+                setSecondsLeft(0);
+                localStorage.removeItem(countdownItem);
+                return;
+            }
+
+            setSecondsLeft(seconds);
+        }, 1000);
+    };
+
+    const handleSubmit = async (e: React.BaseSyntheticEvent) => {
+        e.preventDefault();
+
+        if (isCooldown) return;
+
+        setIsCooldown(true);
+
+        const cooldownUntil = Date.now() + time;
+
+        startCooldownTimer(cooldownUntil);
+
+        localStorage.setItem(countdownItem, cooldownUntil.toString());
+
+        setLoading(true)
+
+        try {
+            const formData = new FormData(e.currentTarget);
+            const result = await recrutementlogic(formData);
+
+            if (result.success) {
+                setLoading(false);
+                setFormEnd(true);
+                setSuccess(true);
+                setErrors({});
+            } else {
+                setLoading(false);
+                setFormEnd(true);
+                setSuccess(false)
+            }
+        } catch (error) {
+            console.log("Erreur dans la communication", error);
             setLoading(false);
             setFormEnd(true);
-            setSuccess(true);
-            setErrors({});
-        } else {
-            setErrors(result.errors ?? {FrontEnd: "mauvaise communication."});
-            console.log(errors);
         }
     }
 
@@ -192,7 +251,12 @@ export default function GeneralForm() {
                                 </p>
                                 <StarForm/>
 
-                                <button type={"submit"} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm hover:scale-105 transition-all duration-300'}>Validez votre candidature</button>
+                                <button type={"submit"} disabled={isCooldown} className={'bg-main w-fit block mx-auto px-9 py-3 text-white shadow rounded-sm hover:scale-105 transition-all duration-300' +
+                                    'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-main disabled:hover:text-white'}>
+                                    {isCooldown
+                                        ? `Veuillez patienter (${secondsLeft}s)`
+                                        : "Valider votre candidature"}
+                                </button>
                                 {loading && (<p>Envoi...</p>)}
                             </div>
                         )}
