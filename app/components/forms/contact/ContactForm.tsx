@@ -5,6 +5,7 @@ import {InputTextForm} from "@/app/components/forms/input/InputTextForm";
 import {FaCheck, FaUpload} from "react-icons/fa";
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
+import {useCooldownTimer} from "@/app/components/forms/cooldown";
 
 export function ContactForm() {
 
@@ -13,33 +14,13 @@ export function ContactForm() {
     const time = 30000;
     const countdownItem = "contactFormCooldown"
 
-    const [isCooldown, setIsCooldown] = useState<boolean>(false);
-    const [secondsLeft, setSecondsLeft] = useState(0);
+    const { isCooldown, setIsCooldown, secondsLeft, startCooldownTimer } = useCooldownTimer(countdownItem);
 
     const classDiv = "bg-white flex flex-col gap-6 w-80 mx-auto p-4 rounded-lg shadow mt-6 mb-6 lg:w-[60%]"
     const [fileUpload, setFileUpload] = useState(false);
     const [formEnd, setFormEnd] = useState(false);
 
     const [success, setSuccess] = useState(false);
-
-    const startCooldownTimer = (cooldownUntil: number) => {
-        setIsCooldown(true);
-
-        const interval = setInterval(() => {
-            const remaining = cooldownUntil - Date.now();
-            const seconds = Math.ceil(remaining / 1000);
-
-            if (remaining <= 0) {
-                clearInterval(interval);
-                setIsCooldown(false);
-                setSecondsLeft(0);
-                localStorage.removeItem(countdownItem);
-                return;
-            }
-
-            setSecondsLeft(seconds);
-        }, 1000);
-    };
 
     useEffect(() => {
         const cooldownUntil = localStorage.getItem(countdownItem);
