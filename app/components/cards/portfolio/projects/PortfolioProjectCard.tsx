@@ -20,21 +20,20 @@ export default function PortfolioProjectCard({src, alt, title, description, main
     }
 
     return (
-        <div className={'w-[80%] mx-auto bg-white p-3 rounded-xl shadow lg:w-full'}>
-            <div className={'relative h-50 w-full lg:h-70'}>
+        <div className={'bg-main/10 p-3 rounded-xl shadow'}>
+            <div>
                 {
                     isYoutube(src) ? (
                         <iframe
                             src={getYoutubeEmbedUrl(src)}
-                            className="w-full h-full"
+                            className="w-full h-full object-cover rounded-xl aspect-video"
                             allowFullScreen
                         />
                     ) : (
-                        <Image
+                        <img
                             src={src}
                             alt={alt}
-                            fill
-                            className="object-cover"
+                            className="w-full h-full object-cover rounded-xl"
                         />
                     )
                 }
