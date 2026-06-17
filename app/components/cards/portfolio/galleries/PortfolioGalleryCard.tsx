@@ -4,7 +4,7 @@ import {Props} from "@/app/components/cards/portfolio/galleries/props";
 import {useState} from "react";
 import { X, Link } from "lucide-react"
 
-export default function PortfolioGalleyCard({src, alt, credit, description, link}: Props) {
+export default function PortfolioGalleryCard({src, alt, credit, description, link}: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

@@ -4,7 +4,7 @@ import Link from "next/link";
 import ProjectsList from "@/app/data/portfolio/projects";
 import GalleryList from "@/app/data/portfolio/gallery";
 import PortfolioProjectCard from "@/app/components/cards/portfolio/projects/PortfolioProjectCard";
-import PortfolioGalleyCard from "@/app/components/cards/portfolio/galleries/PortfolioGalleyCard";
+import PortfolioGalleryCard from "@/app/components/cards/portfolio/galleries/PortfolioGalleryCard";
 
 export default function Portfolio() {
 
@@ -34,7 +34,7 @@ export default function Portfolio() {
                         {
                             GalleryList.map((proj, index) => {
                                 return (
-                                    <PortfolioGalleyCard key={index} {...proj} />
+                                    <PortfolioGalleryCard key={index} {...proj} />
                                 )
                             })
                         }
