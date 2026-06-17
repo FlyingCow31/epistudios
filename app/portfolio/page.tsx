@@ -7,6 +7,7 @@ import PortfolioProjectCard from "@/app/components/cards/portfolio/projects/Port
 import PortfolioGalleyCard from "@/app/components/cards/portfolio/galleries/PortfolioGalleyCard";
 
 export default function Portfolio() {
+
     return (
         <div>
             <Navbar/>
