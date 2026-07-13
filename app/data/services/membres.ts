@@ -83,6 +83,12 @@ const MembresList = [
         title: "Développeur",
         description: "Passe TS"
     },
+    {
+        src: "/members/nolly.webp",
+        name: "Nolly",
+        title: "T-Développeu.r.se",
+        description: "Autodidacte depuis 2017, passionné.e par le développement web et les jeux vidéo."
+    },
 ];
 
 export default MembresList
