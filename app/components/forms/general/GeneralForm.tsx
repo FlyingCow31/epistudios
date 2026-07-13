@@ -10,6 +10,7 @@ import Link from "next/link";
 import {FaCheck, FaUpload} from "react-icons/fa";
 import {FAQ} from "@/app/components/faq/FAQ";
 import RecrutementsList from "@/app/data/faq/recrutements";
+import {useCooldownTimer} from "@/app/components/forms/cooldown";
 
 export default function GeneralForm() {
     const [openForm, setOpenForm] = useState< string | null>(null);
@@ -21,8 +22,7 @@ export default function GeneralForm() {
     const time = 30000;
     const countdownItem = "recrutmentFormCooldown"
 
-    const [isCooldown, setIsCooldown] = useState<boolean>(false);
-    const [secondsLeft, setSecondsLeft] = useState(0);
+    const { isCooldown, setIsCooldown, secondsLeft, startCooldownTimer } = useCooldownTimer(countdownItem);
 
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -36,31 +36,12 @@ export default function GeneralForm() {
         const cooldownUntilNumber = Number(cooldownUntil);
 
         if (cooldownUntilNumber > Date.now()) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect,react-hooks/immutability
+            // eslint-disable-next-line react-hooks/immutability
             startCooldownTimer(cooldownUntilNumber);
         } else {
             localStorage.removeItem(countdownItem);
         }
-    }, []);
-
-    const startCooldownTimer = (cooldownUntil: number) => {
-        setIsCooldown(true);
-
-        const interval = setInterval(() => {
-            const remaining = cooldownUntil - Date.now();
-            const seconds = Math.ceil(remaining / 1000);
-
-            if (remaining <= 0) {
-                clearInterval(interval);
-                setIsCooldown(false);
-                setSecondsLeft(0);
-                localStorage.removeItem(countdownItem);
-                return;
-            }
-
-            setSecondsLeft(seconds);
-        }, 1000);
-    };
+    }, []); 
 
     const handleSubmit = async (e: React.BaseSyntheticEvent) => {
         e.preventDefault();

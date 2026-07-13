@@ -1,13 +1,41 @@
-import Image from "next/image";
 import Link from "next/link";
 import {FaLink} from "react-icons/fa";
 import {Props} from "@/app/components/cards/portfolio/projects/props";
 
 export default function PortfolioProjectCard({src, alt, title, description, mainfeat, descfeat, tags, link}: Props) {
+
+    const isYoutube = (src: string) => {
+        return /youtube\.com|youtu\.be/i.test(src);
+    };
+
+    function getYoutubeEmbedUrl(url: string) {
+        const match = url.match(
+            /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/i
+        );
+
+        return match
+            ? `https://www.youtube.com/embed/${match[1]}`
+            : url;
+    }
+
     return (
-        <div className={'w-[80%] mx-auto bg-white p-3 rounded-xl shadow lg:w-full'}>
-            <div className={'relative h-50 w-full lg:h-70'}>
-                <Image src={src} alt={alt} fill className={'object-fit'}/>
+        <div className={'bg-main/10 p-3 rounded-xl shadow'}>
+            <div>
+                {
+                    isYoutube(src) ? (
+                        <iframe
+                            src={getYoutubeEmbedUrl(src)}
+                            className="w-full h-full object-cover rounded-xl aspect-video"
+                            allowFullScreen
+                        />
+                    ) : (
+                        <img
+                            src={src}
+                            alt={alt}
+                            className="w-full h-full object-cover rounded-xl"
+                        />
+                    )
+                }
             </div>
             <div>
                 <p className={'text-3xl mt-3 text-main font-bold'}>{title}</p>

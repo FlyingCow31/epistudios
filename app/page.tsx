@@ -61,19 +61,19 @@ export default function Home() {
 
                 <div className={" bg-[url('/fond-feuilles-beige.jpg')] bg-cover bg-center flex flex-col items-center lg:flex-row lg:justify-center"}>
                     <div className={"relative"}>
-                        <Image src={"/Commandes-realisee-image.png"} alt={"Commandes réalisées"} height={250} width={250}/>
+                        <Image src={"/Commandes-realisee-le-corenvers-flottant.png"} alt={"Commandes réalisées"} height={250} width={250}/>
                         <p className={"absolute inset-0 flex items-center justify-center text-8xl text-main font-extrabold"}>8</p>
                     </div>
 
 
                     <div className={"relative"}>
-                        <Image src={"/membres-image.png"} alt={"Commandes réalisées"} height={250} width={250}/>
+                        <Image src={"/membres-le-corenvers-flottant.png"} alt={"Commandes réalisées"} height={250} width={250}/>
                         <p className={"absolute inset-0 flex items-center justify-center text-8xl text-main font-extrabold"}>15</p>
                     </div>
 
 
                     <div  className={"relative"}>
-                        <Image src={"/projets-open-sources-image.png"} alt={"Commandes réalisées"} height={250} width={250}/>
+                        <Image src={"/projets-open-sources-le-corenvers-flottant.png"} alt={"Commandes réalisées"} height={250} width={250}/>
                         <p className={"absolute inset-0 flex items-center justify-center text-8xl text-main font-extrabold"}>4</p>
                     </div>
 

@@ -4,9 +4,10 @@ import Link from "next/link";
 import ProjectsList from "@/app/data/portfolio/projects";
 import GalleryList from "@/app/data/portfolio/gallery";
 import PortfolioProjectCard from "@/app/components/cards/portfolio/projects/PortfolioProjectCard";
-import PortfolioGalleyCard from "@/app/components/cards/portfolio/galleries/PortfolioGalleyCard";
+import PortfolioGalleryCard from "@/app/components/cards/portfolio/galleries/PortfolioGalleryCard";
 
 export default function Portfolio() {
+
     return (
         <div>
             <Navbar/>
@@ -17,12 +18,12 @@ export default function Portfolio() {
                     Retrouvez tous nos projets les plus impressionnants que nous avons pu réaliser pour des
                     clients comme vous ! Certaines données sont anonymisées pour garantir la sécurité de nos clients.
                 </p>
-                <div className={'flex flex-col gap-6 my-6 lg:grid lg:grid-cols-2 lg:w-[80%] lg:mx-auto'}>
-                    {ProjectsList.map((proj, index) => {
-                        return (
-                            <PortfolioProjectCard key={index} {...proj} />
-                        )
-                    })}
+                <div className="columns-1 lg:columns-2 gap-6 lg:w-[80%] mx-auto p-6 lg:p-0">
+                    {ProjectsList.map((proj, index) => (
+                        <div key={index} className="mb-6 break-inside-avoid">
+                            <PortfolioProjectCard {...proj} />
+                        </div>
+                    ))}
                 </div>
 
                 <h1 className={'bigtitle'}>Galerie</h1>
@@ -33,7 +34,7 @@ export default function Portfolio() {
                         {
                             GalleryList.map((proj, index) => {
                                 return (
-                                    <PortfolioGalleyCard key={index} {...proj} />
+                                    <PortfolioGalleryCard key={index} {...proj} />
                                 )
                             })
                         }
