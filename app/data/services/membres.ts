@@ -80,7 +80,7 @@ const MembresList = [
     {
         src: "/members/onticentity.jpg",
         name: "Onticentity",
-        title: "Developer",
+        title: "Développeur",
         description: "Passe TS"
     },
 ];
