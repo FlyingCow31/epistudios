@@ -76,7 +76,13 @@ const MembresList = [
         name: "Loan",
         title: "Graphiste",
         description: "Graphiste et dessinatrice, armée de ses études de com pour aller un peu plus loin :)"
-    }
+    },
+    {
+        src: "/members/onticentity.jpg",
+        name: "Onticentity",
+        title: "Developer",
+        description: "Passe TS"
+    },
 ];
 
 export default MembresList
