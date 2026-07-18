@@ -145,7 +145,7 @@ export async function recrutementlogic(formData: FormData) {
         Nous avons bien reçu votre candidature!
         Vous pouvez vous attendre à recevoir une réponse d'ici 1 à 2 semaines, par mail. 
         Si vous ne recevez pas de réponse après deux semaines, et seulement après 2 semaines, envoyez une relance
-        à l'adresse mail suivante: gael.tournier@epistudios.fr . 
+        à l'adresse mail suivante: gael.tournier@epistudio.fr . 
         
         En attendant, nous vous invitons à venir nous rencontrer sur notre serveur discord: https://discord.gg/YRvqEMGf5N
         Ou sur notre site web: https://www.epistudios.fr 
