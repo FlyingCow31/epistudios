@@ -10,8 +10,9 @@ export const metadata = {
           "Studio de développement Open-Source associatif à Toulouse : sites web sur-mesure, jeux vidéo et plugins/mods Minecraft. Devis gratuit.",
      alternates: { canonical: "https://epistudio.fr/" },
      openGraph: {
-          title: "...",
-          description: "...",
+          title: "Sites web, plugins Minecraft ou jeux-vidéos, tout en Open-Source | EPI Studio",
+          description:
+               "Studio de développement Open-Source associatif à Toulouse : sites web sur-mesure, jeux vidéo et plugins/mods Minecraft. Devis gratuit.",
           url: "https://epistudio.fr",
           siteName: "EPI Studio",
           images: ["/og-image.png"],

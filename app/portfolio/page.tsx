@@ -12,8 +12,9 @@ export const metadata = {
           "Découvrez notre portfolio avec nos dernières créations commandées de sites web, plugins minecraft, jeux-videos ou plugins open-source",
      alternates: { canonical: "https://epistudio.fr/" },
      openGraph: {
-          title: "...",
-          description: "...",
+          title: "Portfolio de sites webs, plugins Minecraft, jeux-videos | EPI Studio",
+          description:
+               "Découvrez notre portfolio avec nos dernières créations commandées de sites web, plugins minecraft, jeux-videos ou plugins open-source",
           url: "https://epistudio.fr",
           siteName: "EPI Studio",
           images: ["/og-image.png"],
