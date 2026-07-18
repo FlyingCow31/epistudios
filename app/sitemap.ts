@@ -3,7 +3,7 @@ import { MetadataRoute } from "next"
 export default function sitemap(): MetadataRoute.Sitemap {
      const baseUrl = "https://epistudio.fr"
 
-     const routes = ["/", "/contact", "/portfolio", "/projets", "/recrutements", "/services"]
+     const routes = ["", "/contact", "/portfolio", "/projets", "/recrutements", "/services"]
 
      return routes.map((route) => ({
           url: `${baseUrl}${route}`,
