@@ -6,6 +6,22 @@ import Link from "next/link"
 import { MemberCard } from "@/app/components/cards/member/MemberCard"
 import { ProjectCard } from "@/app/components/cards/project/ProjectCard"
 
+export const metadata = {
+     title: "Projets de l'association EPI Studio comportant sites web, plugins Minecraft et jeux-vidéos | EPI Studio",
+     description:
+          "Découvrez les projets de notre studio de développement associatif à Toulouse : sites web sur-mesure, jeux vidéo et plugins/mods Minecraft. Devis gratuit.",
+     alternates: { canonical: "https://epistudio.fr/" },
+     openGraph: {
+          title: "...",
+          description: "...",
+          url: "https://epistudio.fr",
+          siteName: "EPI Studio",
+          images: ["/og-image.png"],
+          locale: "fr_FR",
+          type: "website",
+     },
+}
+
 export default function Projects() {
      return (
           <div>
@@ -22,10 +38,10 @@ export default function Projects() {
 
                     <section className={"flex flex-col gap-10 my-6"}>
                          {ProjectsList.map((project, index) => {
-                              return <ProjectCard key={index} {...project} />
+                              return <ProjectCard key={index} {...project} priority={index < 2} />
                          })}
                     </section>
-                    <h1 className={"text-4xl text-main font-bold text-center my-10"}>Meet the Team !</h1>
+                    <h2 className={"text-4xl text-main font-bold text-center my-10"}>Meet the Team !</h2>
 
                     <section
                          className={"flex flex-col gap-10 my-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[70%] lg:mx-auto"}
@@ -39,9 +55,9 @@ export default function Projects() {
                               "shadow bg-main w-80 mx-auto p-4 flex flex-col items-center rounded-2xl mb-6 lg:w-[80%] lg:py-12"
                          }
                     >
-                         <h1 className={"text-center font-bold text-white text-5xl"}>
+                         <h2 className={"text-center font-bold text-white text-5xl"}>
                               Tu souhaites faire partie du studio?
-                         </h1>
+                         </h2>
                          <Link
                               href={"/recrutements"}
                               className={

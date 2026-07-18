@@ -3,7 +3,7 @@ export const GalleryList = [
           src: "/assets/galleries/toit-japonais.png",
           description: "Visuel conceptuel et onirique en 3d pour l'intérieur d'un calendrier de thé.",
           credit: "Ilan",
-          link: "https://epistudio.fr",
+          link: "https://www.behance.net/gallery/249137841/Portoflio-Design",
           alt: "Visuel Onirique pour calendrier de thé",
      },
      {
@@ -17,14 +17,14 @@ export const GalleryList = [
           src: "/assets/galleries/flowers.png",
           description: "Visuel et couverture d'un calendrier de thé dans le style conceptuel et onirique.",
           credit: "Ilan",
-          link: "https://www.google.com",
+          link: "https://www.behance.net/gallery/249137841/Portoflio-Design",
           alt: "Visuels oniriques et conceptuels",
      },
      {
           src: "/assets/galleries/moud.png",
           description: "Logos divers et professionnels pour des projets tech, graphique et autre.",
           credit: "Ilan",
-          link: "https://www.google.com",
+          link: "https://www.behance.net/gallery/249137841/Portoflio-Design",
           alt: "Logos divers pour projets tech et graphiques.",
      },
      {
@@ -39,13 +39,13 @@ export const GalleryList = [
           description: "Logo fictif pour un blog de critique musicale.",
           credit: "Loan",
           link: "https://www.instagram.com/luhett_t/",
-          alt: "dfjiodjifdojfikosdjfidojiof",
+          alt: "Logo pour un blog de critique musicale",
      },
      {
           src: "/assets/galleries/volkswagen.png",
           description: "Réalisations personnelles en 3D pour approfondir cet aspect du graphisme.",
           credit: "Ilan",
-          link: "https://www.google.com",
+          link: "https://www.behance.net/gallery/249137841/Portoflio-Design",
           alt: "Oeuvres graphiques en 3D.",
      },
      {
@@ -53,7 +53,7 @@ export const GalleryList = [
           description:
                "Projet scolaire fictif mettant en scène une fusion entre deux marques de céramique et de papier.",
           credit: "Ilan",
-          link: "https://www.google.com",
+          link: "https://www.behance.net/gallery/249137841/Portoflio-Design",
           alt: "Logo fusion entre marque de céramique et de papier.",
      },
 ]

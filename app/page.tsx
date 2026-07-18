@@ -3,7 +3,22 @@ import Link from "next/link"
 import Footer from "@/app/components/footer/Footer"
 import Image from "next/image"
 import { ArrowRightIcon } from "lucide-react"
-import React from "react"
+
+export const metadata = {
+     title: "Sites web, plugins Minecraft ou jeux-vidéos, tout en Open-Source | EPI Studio",
+     description:
+          "Studio de développement Open-Source associatif à Toulouse : sites web sur-mesure, jeux vidéo et plugins/mods Minecraft. Devis gratuit.",
+     alternates: { canonical: "https://epistudio.fr/" },
+     openGraph: {
+          title: "...",
+          description: "...",
+          url: "https://epistudio.fr",
+          siteName: "EPI Studio",
+          images: ["/og-image.png"],
+          locale: "fr_FR",
+          type: "website",
+     },
+}
 
 export function StatueMain() {
      return (
@@ -62,7 +77,7 @@ export default function Home() {
 
                     <section>
                          <div className={"flex flex-col items-center"}>
-                              <h1 className={"text-3xl mt-10 lg:text-4xl"}>Des statistiques</h1>
+                              <h2 className={"text-3xl mt-10 lg:text-4xl"}>Des statistiques</h2>
                               <p className={"text-center text-6xl text-main my-6 lg:text-8xl"}>↓</p>
                          </div>
 
@@ -123,7 +138,7 @@ export default function Home() {
 
                     <section className={"lg:flex-row lg:flex lg:items-center lg:justify-center lg:gap-10"}>
                          <div className={"lg:flex lg:flex-col lg:items-center"}>
-                              <h1 className={"text-main text-center text-3xl mt-10"}>Un message du Président</h1>
+                              <h2 className={"text-main text-center text-3xl mt-10"}>Un message du Président</h2>
 
                               <p className={"lg:text-lg lg:text-justify text-sm w-80 mx-auto text-center italic"}>
                                    <span className={"text-2xl font-extrabold lg:text-4xl"}>&#34;</span>Bienvenue sur EPI
@@ -152,7 +167,7 @@ export default function Home() {
                     </section>
 
                     <section className={"mt-10"}>
-                         <h1 className={"text-main text-center text-3xl"}>Nos Partenaires</h1>
+                         <h2 className={"text-main text-center text-3xl"}>Nos Partenaires</h2>
                          <p className={"text-center text-xl"}>
                               Merci à nos partenaires de faire fonctionner notre association!
                          </p>

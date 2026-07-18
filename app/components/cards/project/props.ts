@@ -1,7 +1,8 @@
 export interface Props {
-    src: string,
-    title: string,
-    description: string,
-    ctatitle: string,
-    cta: string
+     src: string
+     title: string
+     description: string
+     ctatitle: string
+     cta: string
+     priority?: boolean
 }
