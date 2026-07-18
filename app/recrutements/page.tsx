@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function Page() {
      return (
-          <div>
+          <>
                <Navbar />
                <MobileNavbar />
 
@@ -36,6 +36,6 @@ export default function Page() {
                     <GeneralForm />
                </main>
                <Footer />
-          </div>
+          </>
      )
 }

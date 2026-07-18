@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function Portfolio() {
      return (
-          <div>
+          <>
                <Navbar />
 
                <main className={"overflow-y-auto"}>
@@ -75,6 +75,6 @@ export default function Portfolio() {
                </main>
                <Footer />
                <MobileNavbar />
-          </div>
+          </>
      )
 }

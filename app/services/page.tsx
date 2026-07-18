@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function page() {
      return (
-          <div>
+          <>
                <Navbar />
                <MobileNavbar />
 
@@ -46,9 +46,9 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-lg flex flex-col gap-3 items-center lg:w-[60%] lg:items-start"
                               }
                          >
-                              <h1 className={"text-main text-xl text-center font-semibold lg:text-5xl lg:p-3"}>
+                              <h2 className={"text-main text-xl text-center font-semibold lg:text-5xl lg:p-3"}>
                                    Découvrez nos créations
-                              </h1>
+                              </h2>
                               <p className={"lg:p-3"}>
                                    EPI Studio s&#39;est, au fil du temps, constitué un portfolio pour que vous puissiez
                                    nous faire confiance! Accèdez-y via ce bouton.
@@ -57,13 +57,13 @@ export default function page() {
                          </div>
 
                          <div className={"bg-white shadowthing text-left w-80 mx-auto p-3 rounded-lg lg:w-[60%]"}>
-                              <h1
+                              <h2
                                    className={
                                         "text-main text-xl text-center font-semibold lg:text-4xl lg:text-left lg:mb-3"
                                    }
                               >
                                    Informations
-                              </h1>
+                              </h2>
                               <p>
                                    Aucuns prix ne sont affichés, nous réalisons un devis 100% sur-mesure, adapté à votre
                                    budget.
@@ -76,7 +76,7 @@ export default function page() {
                          </div>
                     </div>
 
-                    <h1 className={"bigtitle text-center my-10"}>Sites web</h1>
+                    <h2 className={"bigtitle text-center my-10"}>Sites web</h2>
 
                     <div className={"flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:w-[60%] lg:mx-auto"}>
                          <div
@@ -84,7 +84,7 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-full"
                               }
                          >
-                              <h1 className={"smalltitle"}>Projet sur-mesure</h1>
+                              <h2 className={"smalltitle"}>Projet sur-mesure</h2>
                               <p>✔ Databases & authentification</p>
                               <p>✔ SEO (visibilité optimisée)</p>
                               <p>✔ Design graphique</p>
@@ -112,7 +112,7 @@ export default function page() {
                          </div>
                     </div>
 
-                    <h1 className={"bigtitle text-center mt-10"}>Discord</h1>
+                    <h2 className={"bigtitle text-center mt-10"}>Discord</h2>
                     <p className={"opacity-50 text-center mb-10"}>
                          L&#39;association EPI Studio n&#39;est pas affiliée à Discord inc.
                     </p>
@@ -123,7 +123,7 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]"
                               }
                          >
-                              <h1 className={"smalltitle"}>Serveur personnalisé</h1>
+                              <h2 className={"smalltitle"}>Serveur personnalisé</h2>
                               <p>📦 Livraison rapide (1 - 3 jours) </p>
                               <p>🤖 Configuration des bots inclus </p>
                               <p>Serveurs communautaires, spécialisés, de travail ou juste entre amis! </p>
@@ -135,7 +135,7 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]"
                               }
                          >
-                              <h1 className={"smalltitle"}>Bot Discord personnalisé</h1>
+                              <h2 className={"smalltitle"}>Bot Discord personnalisé</h2>
                               <p>✔ Toutes fonctionnalités possibles </p>
                               <p>✔ Nombre de commandes illimité</p>
                               <p className={"lg:mb-auto"}>❌ Hébergement non-inclus </p>
@@ -143,7 +143,7 @@ export default function page() {
                          </div>
                     </div>
 
-                    <h1 className={"bigtitle text-center mt-10"}>Minecraft</h1>
+                    <h2 className={"bigtitle text-center mt-10"}>Minecraft</h2>
                     <p className={"opacity-50 text-center mb-10"}>
                          L&#39;association EPI Studio n&#39;est pas affiliée à Mojang.
                     </p>
@@ -154,7 +154,7 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]"
                               }
                          >
-                              <h1 className={"smalltitle"}>Serveur personnalisé</h1>
+                              <h2 className={"smalltitle"}>Serveur personnalisé</h2>
                               <p>♾️ configuration de plugins infinis </p>
                               <p>🛡️ Anti-Cheat </p>
                               <p>👥 Ranks personnalisés </p>
@@ -182,7 +182,7 @@ export default function page() {
                                    "bg-white shadowthing text-left w-80 mx-auto p-3 rounded-xl flex flex-col gap-3 lg:w-[100%]"
                               }
                          >
-                              <h1 className={"smalltitle"}>Plugins personnalisés</h1>
+                              <h2 className={"smalltitle"}>Plugins personnalisés</h2>
                               <p>♾️ Possibilités infinies !</p>
                               <p>📜 Documentation incluse </p>
                               <p>🤝 Assistance 6 mois </p>
@@ -214,7 +214,7 @@ export default function page() {
                          </div>
                     </div>
 
-                    <h1 className={"bigtitle text-center mt-10"}>Et bien plus...</h1>
+                    <h2 className={"bigtitle text-center mt-10"}>Et bien plus...</h2>
                     <p className={"opacity-50 text-center mb-10 lg:mb-0"}>Projets sur-mesures</p>
                     <p className={"opacity-50 text-center mb-10"}>Graphisme et Illustrations</p>
 
@@ -231,12 +231,13 @@ export default function page() {
                               <ArrowRightIcon />
                          </div>
                     </Link>
+                    <article>
+                         <h2 className={"bigtitle text-center mt-10"}>F.A.Q</h2>
 
-                    <h1 className={"bigtitle text-center mt-10"}>F.A.Q</h1>
-
-                    <FAQ questions={ServicesList} />
+                         <FAQ questions={ServicesList} />
+                    </article>
                </main>
                <Footer />
-          </div>
+          </>
      )
 }

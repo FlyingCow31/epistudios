@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function Projects() {
      return (
-          <div>
+          <>
                <Navbar />
                <main className={"min-h-screen"}>
                     <section>
@@ -72,6 +72,6 @@ export default function Projects() {
                <Footer />
 
                <MobileNavbar />
-          </div>
+          </>
      )
 }
