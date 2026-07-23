@@ -40,10 +40,10 @@ export const ProjectsList = [
           title: "TextAPI",
           description:
                "Un système de formatage de texte et de placeholder haute performance pour les serveurs Spigot 1.21+ en pure kotlin.",
-          mainfeat: "Feature -  MiniMessage et PlaceholderAPI en un seul plugin, plus performant et versatile",
+          mainfeat: "Feature - MiniMessage et PlaceholderAPI en un seul plugin, plus performant et versatile",
           descfeat:
                "Au lieu d'avoir deux plugins a part, on en a plus qu'un, cross-platform pour toute la 1.21, fonctionnel en pure kotlin, sans aucune dependance externe",
-          tags: [" kotlin 2.4.0", "java 21", "spigot 1.21+", "license WTFPL", " #noAI"],
+          tags: ["kotlin 2.4.0", "java 21", "spigot 1.21+", "license WTFPL", " #noAI"],
           link: "https://github.com/thenolle/textapi",
      },
      {
@@ -51,11 +51,11 @@ export const ProjectsList = [
           alt: "Patcher est un logiciel de gestion de patch note.",
           title: "Elity",
           description:
-               "Un système de formatage de texte et de placeholder haute performance pour les serveurs Spigot 1.21+ en pure kotlin.",
-          mainfeat: "Feature -  MiniMessage et PlaceholderAPI en un seul plugin, plus performant et versatile",
+               "Plugin Minecraft vanilla qui rajoute de la difficulté dans le jeux, avec de nouveaux ennemis, des statistiques et des items.",
+          mainfeat: "Feature - Une difficulté accru",
           descfeat:
-               "Au lieu d'avoir deux plugins a part, on en a plus qu'un, cross-platform pour toute la 1.21, fonctionnel en pure kotlin, sans aucune dependance externe",
-          tags: [" kotlin 2.4.0", "java 21", "spigot 1.21+", "license WTFPL", " #noAI"],
+               "Inspiré de Permadeath, nous y retrouvons plusieurs améliorations des mobs (hostiles et passifs), de nouveaux systèmes de craft custom et des statistiques personnalisées qui permettent de survivre un peu plus longtemps.\n",
+          tags: ["java 21", "spigot 1.20+", " #noAI"],
           link: "https://youtu.be/r3PZdGZxiFU",
      },
 ]
